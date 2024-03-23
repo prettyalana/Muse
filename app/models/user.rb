@@ -31,4 +31,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings, class_name: "Listing", foreign_key: "buyer_id" 
+  has_many :offers, class_name: "Offer", foreign_key: "offer_id"
 end

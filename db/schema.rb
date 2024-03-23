@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_22_204522) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_23_183000) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -21,10 +21,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_204522) do
     t.string "image"
     t.text "caption"
     t.integer "category_id"
-    t.integer "buyer_id"
     t.boolean "purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "buyer_id", null: false
+    t.index ["buyer_id"], name: "index_listings_on_buyer_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -37,7 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_204522) do
   end
 
   create_table "offers", force: :cascade do |t|
-    t.integer "seller_id"
     t.string "image"
     t.text "description"
     t.integer "listing_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_204522) do
     t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seller_id", null: false
+    t.index ["seller_id"], name: "index_offers_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_204522) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "listings", "users", column: "buyer_id"
+  add_foreign_key "offers", "users", column: "seller_id"
 end

@@ -6,7 +6,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       enable_extension("citext")
       ## Database authenticatable
       t.citext :email,              null: false, default: ""
-      # t.citext :email, 
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -35,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       t.citext :username
-      # t.citext :username
 
       t.timestamps null: false
     end
