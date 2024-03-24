@@ -21,4 +21,7 @@
 #
 class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User"
+
+  validates :caption, presence: true
+  validates :image, presence: true
 end

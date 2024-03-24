@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_23_183000) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_024622) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,12 +29,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_23_183000) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
     t.integer "listing_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -70,5 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_23_183000) do
   end
 
   add_foreign_key "listings", "users", column: "buyer_id"
+  add_foreign_key "messages", "users", column: "recipient_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "offers", "users", column: "seller_id"
 end

@@ -32,4 +32,8 @@ class User < ApplicationRecord
 
   has_many :listings, class_name: "Listing", foreign_key: "buyer_id" 
   has_many :offers, class_name: "Offer", foreign_key: "offer_id"
+  has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
+  has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
+
+  validates :username, presence: true, uniqueness: true
 end
