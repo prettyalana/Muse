@@ -10,5 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_024622) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "image"
+    t.text "caption"
+    t.integer "category_id"
+    t.boolean "purchased"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "buyer_id", null: false
+    t.index ["buyer_id"], name: "index_listings_on_buyer_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "listing_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "image"
+    t.text "description"
+    t.integer "listing_id"
+    t.decimal "price"
+    t.integer "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "seller_id", null: false
+    t.index ["seller_id"], name: "index_offers_on_seller_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address"
+    t.string "image"
+    t.text "bio"
+    t.string "location"
+    t.string "account_type"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "listings", "users", column: "buyer_id"
+  add_foreign_key "messages", "users", column: "recipient_id"
+  add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "offers", "users", column: "seller_id"
 end
