@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_24_024622) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_25_161321) do
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "clothing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -20,12 +20,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_024622) do
   create_table "listings", force: :cascade do |t|
     t.string "image"
     t.text "caption"
-    t.integer "category_id"
     t.boolean "purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "buyer_id", null: false
+    t.integer "category_id", null: false
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
+    t.index ["category_id"], name: "index_listings_on_category_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -65,12 +66,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_024622) do
     t.string "image"
     t.text "bio"
     t.string "location"
-    t.string "account_type"
+    t.string "account_type", default: "buyer"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "listings", "categories"
   add_foreign_key "listings", "users", column: "buyer_id"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"

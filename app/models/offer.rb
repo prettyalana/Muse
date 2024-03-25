@@ -22,4 +22,7 @@
 #
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
+  # belongs_to :listing, class_name: "Listing"
+
+  enum status: { pending: "pending", countered: "countered", rejected: "rejected", accepted: "accepted"}
 end
