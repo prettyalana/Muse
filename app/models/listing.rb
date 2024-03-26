@@ -25,8 +25,10 @@ class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   belongs_to :category, class_name: "Category"
   
+  has_many :messages, class_name: "Message"
   has_many :offers, through: :messages
-
+  
+  
   validates :caption, presence: true
   validates :image, presence: true
 

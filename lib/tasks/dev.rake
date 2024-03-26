@@ -43,42 +43,44 @@ task({ :sample_data => :environment }) do
       listings = user.purchased_listings.create!(
         caption: Faker::Lorem.sentence,
         image: "https://robohash.org/#{rand(9999)}",
-        # purchased: listing.purchased,
         category: category
       )
     end
   end
 
+
   users.each do |user|
     rand(15).times do
-      # listing = Listing.new
-      # message = Message.new
+      listing = Listing.new
+      message = Message.new
       offer = user.sent_offers.create!(
         description: Faker::Lorem.sentence,
-        # listing: listing,
+        listing: listing,
         image: "https://robohash.org/#{rand(9999)}",
         price: rand(1000),
-        # message: message
+        message: message
       )
     end
   end
 
-  message = Faker::Quote.singular_siegler
-  # response = Faker::Quote.robin
+  message = Faker::Lorem.sentence
+  listing = Listing.new
   users.each do |seller|
     users.each do |buyer|
       if rand < 0.75
-        seller.sent_messages.create(
+        seller.sent_messages.create!(
+          sender: seller, 
           recipient: buyer,
-          # listing: listing,
+          listing: listing,
           body: message,
         )
       end
 
       if rand < 0.75
-        buyer.received_messages.create(
+        buyer.received_messages.create!(
+          sender: buyer,
           recipient: seller,
-          # listing: listing,
+          listing: listing,
           body: message,
         )
       end

@@ -30,12 +30,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_25_161321) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "listing_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
+    t.integer "listing_id"
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
