@@ -42,7 +42,7 @@ class User < ApplicationRecord
   # has_many :counter_offers, -> { where(status: "countered")}, foreign_key: :buyer_id, class_name: "Offer"
 
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message", dependent: :destroy
-  has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
+  has_many :replied_messages, foreign_key: :recipient_id, class_name: "Message"
 
   validates :username, presence: true, uniqueness: true
 

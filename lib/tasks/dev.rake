@@ -72,16 +72,16 @@ task({ :sample_data => :environment }) do
           sender: seller, 
           recipient: buyer,
           listing: listing,
-          body: message,
+          body: message
         )
       end
 
       if rand < 0.75
-        buyer.received_messages.create!(
+        buyer.replied_messages.create!(
           sender: buyer,
           recipient: seller,
           listing: listing,
-          body: message,
+          body: message
         )
       end
     end
