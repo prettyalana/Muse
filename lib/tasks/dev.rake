@@ -61,20 +61,19 @@ task({ :sample_data => :environment }) do
     5.times do
       listing.messages.create(
         body: Faker::Lorem.sentence,
-        sender: User.where.not(id: listing.buyer).sample,
-        recipient: listing.buyer,
+        sender: User.where(account_type: "seller").sample,
+        recipient: listing.buyer
       )
       listing.messages.create(
         body: Faker::Lorem.sentence,
         sender: listing.buyer,
-        recipient: User.where.not(id: listing.buyer).sample
+        recipient: User.where(account_type: "seller").sample
       )
     end
   end
 
   p "Created #{Message.all.count} messages."
 
-  # User.where(account_type: "seller").each
   Listing.all.each do |listing|
     messages = listing.messages.where.not(sender_id: listing.buyer)
     if messages.count != 0
