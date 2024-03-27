@@ -13,39 +13,41 @@ task({ :sample_data => :environment }) do
   end
 
   12.times do
-    name = Faker::Name.first_name
-    username = Faker::Name.name
+    username = Faker::Name.first_name
+    name = Faker::Name.name
     address = Faker::Address.full_address
     bio = Faker::Quote.matz
     location = Faker::Address.city
+    account_types = User.account_types.keys.sample
     u = User.create(
-      email: "#{name}@example.com",
+      username: username.downcase,
+      email: "#{username}@example.com",
       password: "password",
-      username: name,
-      name: username,
+      name: name,
       address: address,
       image: "https://robohash.org/#{rand(9999)}",
       bio: Faker::Quote.matz,
       location: Faker::Address.city,
+      account_type: account_types
     )
   end
 
   p "Created #{User.all.count} users."
 
-  until Category.all.length == 12
+  until Category.all.length == 10
     category = Faker::Commerce.department(max: 1, fixed_amount: true)
     Category.create(name: category) unless Category.where(name: category).length != 0
   end
 
   p "Created #{Category.all.count} categories."
 
-  User.all.each do |user|
+  User.where(account_type: "buyer").each do |user|
     rand(15).times do
       user.listings.create(
         caption: Faker::Lorem.sentence,
         image: "https://robohash.org/#{rand(9999)}",
         category: Category.all.sample,
-        purchased: [true, false].sample,
+        purchased: [true, false].sample
       )
     end
   end
@@ -65,13 +67,14 @@ task({ :sample_data => :environment }) do
       listing.messages.create(
         body: Faker::Lorem.sentence,
         sender: listing.buyer,
-        recipient: User.where.not(id: listing.buyer).sample,
+        recipient: User.where.not(id: listing.buyer).sample
       )
     end
   end
 
   p "Created #{Message.all.count} messages."
 
+  # User.where(account_type: "seller").each
   Listing.all.each do |listing|
     messages = listing.messages.where.not(sender_id: listing.buyer)
     if messages.count != 0
@@ -83,7 +86,7 @@ task({ :sample_data => :environment }) do
             price: rand(1000), # fix this
             listing_id: listing.id,
             seller_id: message.sender_id,
-            message_id: message.id,
+            message_id: message.id
             # status: # add this later
           )
         end
