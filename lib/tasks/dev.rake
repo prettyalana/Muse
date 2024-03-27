@@ -69,6 +69,7 @@ task({ :sample_data => :environment }) do
       )
     end
   end
+
   p "Created #{Message.all.count} messages."
 
   Listing.all.each do |listing|
@@ -83,13 +84,13 @@ task({ :sample_data => :environment }) do
             listing_id: listing.id,
             seller_id: message.sender_id,
             message_id: message.id,
-            # status: # add this
+            # status: # add this later
           )
         end
       end
     end
   end
-  # p Listing.all.sample.offers
+
   p "Created #{Offer.all.count} offers."
 
   p "There are now #{User.count} users."
@@ -99,57 +100,7 @@ task({ :sample_data => :environment }) do
   p "There are now #{Offer.count} offers."
 end
 
-#   users.each do |user|
-#     rand(15).times do
-#       listing = Listing.new
-#       message = Message.new
-#       offer = user.sent_offers.create!(
-#         description: Faker::Lorem.sentence,
-#         listing: listing,
-#         image: "https://robohash.org/#{rand(9999)}",
-#         price: rand(1000),
-#         message: message
-#       )
-#     end
-#   end
-
-#   message = Faker::Lorem.sentence
-#   listing = Listing.new
-#   users.each do |seller|
-#     users.each do |buyer|
-#       if rand < 0.75
-#         seller.sent_messages.create!(
-#           sender: seller,
-#           recipient: buyer,
-#           listing: listing,
-#           body: message
-#         )
-#       end
-
-#       if rand < 0.75
-#         buyer.replied_messages.create!(
-#           sender: buyer,
-#           recipient: seller,
-#           listing: listing,
-#           body: message
-#         )
-#       end
-#     end
-#   end
-
-# 12.times do
-#   name = Faker::Name.first_name
-#   username = Faker::Name.name
-#   u = User.create(
-#     email: "#{name}@example.com",
-#     password: "password",
-#     username: name,
-#     name: username,
-#     address: address,
-#     bio: bio,
-#     location: location,
-#   )
-# end
+# This is if I want only the "clothing", "shoes", and "accessories" categories to be present in my database
 
 # ["clothing", "shoes", "accessories"].each do | category |
 #   Category.create(
