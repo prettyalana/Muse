@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  root "listings#index"
+
+
+  devise_for :users
+
   resources :messages
   resources :offers
   resources :categories
   resources :listings
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  root "listings#index"
+
+  get "/:username" => "users#show", as: :user
 end

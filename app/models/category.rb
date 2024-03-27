@@ -9,6 +9,6 @@
 #
 class Category < ApplicationRecord
   has_many :listings, class_name: "Listing", foreign_key: "category_id", dependent: :destroy
-
-  enum :name, {clothing: "clothing", shoes: "shoes", accessories: "accessories"}
+  validates :name, uniqueness: true
+  # enum :name, {clothing: "clothing", shoes: "shoes", accessories: "accessories"}
 end

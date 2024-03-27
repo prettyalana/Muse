@@ -46,5 +46,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  # scope :offers, -> { self.sent_messages.where.not(message.offer.nil?)}
   enum :account_type, { buyer: "buyer", seller: "seller" }
 end
