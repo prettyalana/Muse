@@ -1,8 +1,11 @@
 <div class="navbar">
  <a href="#home"><i class="fa-solid fa-house"></i></a> 
-  <%= link_to :messages do %>
+ <% if user_signed_in? %>
+    <%= link_to :messages do %>
     <i class="fa-solid fa-comments"></i>
+    <% end %>
   <% end %>
+  
 
   <%= link_to new_listing_path do %>
     <i class="fa-solid fa-plus"></i>
