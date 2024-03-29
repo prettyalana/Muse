@@ -1,7 +1,18 @@
 <div class="navbar">
  <a href="#home"><i class="fa-solid fa-house"></i></a> 
-  <a href="#message"><i class="fa-solid fa-comments"></i></a>
-  <a href="#new_listing"><i class="fa-solid fa-plus"></i></a>
-  <a href="#listings"><i class="fa-solid fa-bag-shopping"></i></a>
-  <a href="#profile"><i class="fa-solid fa-user"></i></a>
+  <%= link_to :messages do %>
+    <i class="fa-solid fa-comments"></i>
+  <% end %>
+
+  <%= link_to new_listing_path do %>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
+
+  <%= link_to :listings do %>
+    <i class="fa-solid fa-bag-shopping"></i>
+  <% end %>
+
+  <%= link_to edit_user_registration_path do %>
+    <i class="fa-solid fa-user"></i>
+  <% end %>
 </div>
