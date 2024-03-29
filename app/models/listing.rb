@@ -33,5 +33,6 @@ class Listing < ApplicationRecord
   validates :image, presence: true
 
   scope :purchased_listings, -> { where(purchased: true) }
+  scope :listing, -> { where(current_user: true)}
   #enum purchased: { true: "purchased", false: "not_purchased" }
 end
