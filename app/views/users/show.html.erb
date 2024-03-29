@@ -1,0 +1,28 @@
+<% stylesheet_link_tag('users')%>
+<h1 class="page_header">
+  <%= @user.username %>'s listings
+</h1>
+
+
+<%# <h2> Own listings </h2> %>
+
+
+
+<div class="card-container">
+  <% current_user.listings.each do |listing|%>
+
+  <div class="card">
+    <h5 class="card-title">
+      <%= listing.buyer.image %>
+      <%= listing.buyer.username %></h5>
+    <%= image_tag listing.image, class: "card-img-top" %>
+    <div class="card-body">
+      <p class="card-text"><%= listing.caption %></p>
+    
+      <%= link_to new_message_path do %>
+        <i class="fa-regular fa-message"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>

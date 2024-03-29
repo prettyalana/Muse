@@ -22,18 +22,22 @@
   </div>
 
   <div>
+    <%# form.label :category_id, style: "display: block" %>
+    <%# form.number_field :category_id %>
+  </div>
+  <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
+    <%= collection_select(:listing, :category_id, Category.all, :id, :name ) %>
   </div>
 
   <div>
-    <%= form.label :buyer_id, style: "display: block" %>
-    <%= form.number_field :buyer_id %>
+    <%# form.label :buyer_id, style: "display: block" %>
+    <%#= form.number_field :buyer_id %>
   </div>
 
   <div>
-    <%= form.label :purchased, style: "display: block" %>
-    <%= form.check_box :purchased %>
+    <%# form.label :purchased, style: "display: block" %>
+    <%# form.check_box :purchased %>
   </div>
 
   <div>
