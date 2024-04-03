@@ -1,17 +1,18 @@
-:root {
-  color-scheme: light dark;
+body {
+  padding-bottom: 100px;
+  display: flex;
 }
 
 .page_header {
   text-align: center;
-  /* border: 1px solid red; */
+  margin-bottom: 50px;
 }
 
 .card-container {
-  /* border: 1px solid blue; */
-  width: 100%;
+  width: 50%;
   /* display: flex; */
-  /* gap: 6.25rem; */
+  display: grid;
+  gap: 50px;
   /* flex-wrap: wrap; */
 }
 
