@@ -1,54 +1,72 @@
-# Rails Template
+# Muse MVP Specification
 
-This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
+An app designed for the customer by the customer. 
 
-- Ruby version: `3.2.1`
-- Rails version: `7.0.4.3`
+Muse is a customer driven app that prioritizes the customer's needs by bringing the seller to the buyer. Instead of looking through countless listings only to not find what you’re looking for; you create a listing containing the item you want and the sellers, merchants, and retailers offer you the product. Additionally, we offer a social media-esque platform to help you curate your perfect shopping list; allowing you to organize what you’re looking for in aesthetically pleasing categories and giving your posts more visibility. 
+
+## Pain Point 
+Just as users spend countless hours scrolling through various social media platforms. Online shoppers also spend a copious  amount of time scrolling through listings only to come away with absolutely nothing. To fix that, customers create the product listings because they know exactly what they want best.
+
+## User Stories 
+
+### Buyer Stories
+- As a customer, I want to register for a buyer account to post a listing for the item(s) I'm looking for.
+- As a customer, I want to log in to access my personal account and create listings for the item(s) I'm looking for. 
+- As a customer, I want to edit the information contained in the listings. 
+- As a customer, I want to delete listings that are no longer relevant.
+- As a customer, I want to respond to potential offers and messages from sellers. 
 
 
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
+### Seller stories
+- As a retailer, I want to register for a seller account to make offers to potential customers.
+- As a retailer, I want to log in to access my personal account and send messages to potential customers.
+- As a retailer, I want to send private offers to potential customers.
 
-### Additional gems:
+### Buyer and Seller Stories
+- As a user, I want to use a platform that's designed for and prioritizes the customer's needs.
+- As a user, I want to receive email and/or SMS notifications whenever a seller or buyer messages me.
+- As a user, I want to update my profile and personal information. 
 
-- [`appdev_support`](https://github.com/firstdraft/appdev_support)
-- [`annotate`](https://github.com/ctran/annotate_models)
-- [`awesome_print`](https://github.com/awesome-print/awesome_print)
-- [`better_errors`](https://github.com/BetterErrors/better_errors)
-- [`binding_of_caller`](https://github.com/banister/binding_of_caller)
-- [`dotenv-rails`](https://github.com/bkeepers/dotenv)
-- [`draft_generators`](https://github.com/firstdraft/draft_generators/)
-- [`draft_matchers`](https://github.com/jelaniwoods/draft_matchers/)
-- [`devise`](https://github.com/heartcombo/devise)
-- [`faker`](https://github.com/faker-ruby/faker)
-- [`grade_runner`](https://github.com/firstdraft/grade_runner/)
-- [`htmlbeautifier`](https://github.com/threedaymonk/htmlbeautifier/)
-- [`http`](https://github.com/httprb/http)
-- [`pry_rails`](https://github.com/pry/pry-rails)
-- [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
-- [`rails-erd`](https://github.com/voormedia/rails-erd)
-- [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
-- [`rspec-rails`](https://github.com/rspec/rspec-rails)
-- [`rufo`](https://github.com/ruby-formatter/rufo)
-- [`specs_to_readme`](https://github.com/firstdraft/specs_to_readme)
-- [`table_print`](https://github.com/arches/table_print)
-- [`web_git`](https://github.com/firstdraft/web_git)
-- [`webmock`](https://github.com/bblimke/webmock)
 
-### Additional software:
-- OS Ubuntu 20.04.5 LTS
-- Chromedriver
-- Fly.io's `flyctl`
-- Google Chrome (headless browser)
-- Graphviz
-- Heroku 
-- Node JS 18
-- NPM 8.19.3
-- Parity
-- Postgresql 12
-- Redis
-- Yarn
+## Domain Model
 
-### VS Code extensions:
-- aliariff.vscode-erb-beautify
-- mbessey.vscode-rufo
-- vortizhe.simple-ruby-erb
+### Users 
+- id 
+- name
+- email
+- password
+- username
+- address
+- image 
+- bio
+- location
+- seller_id
+- account_type
+
+### Messages
+- id 
+- sender_id
+- recipient_id
+- listing_id
+- body
+
+### Listings
+- id
+- image
+- caption
+- category_id
+- buyer_id
+- purchased
+
+### Offers
+- id
+- seller_id
+- image 
+- description
+- listing_id
+- price
+- message_id
+
+### Categories
+- id 
+- name

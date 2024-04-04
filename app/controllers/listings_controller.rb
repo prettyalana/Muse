@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
+  before_action :ensure_current_user_is_buyer, only: [:destroy, :update, :edit]
 
   # GET /listings or /listings.json
   def index
@@ -22,6 +23,7 @@ class ListingsController < ApplicationController
   # POST /listings or /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.buyer_id = current_user.id
 
     respond_to do |format|
       if @listing.save
@@ -49,11 +51,15 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1 or /listings/1.json
   def destroy
-    @listing.destroy
+    if current_user == @listing.buyer
+        @listing.destroy
 
-    respond_to do |format|
-      format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
-      format.json { head :no_content }
+        respond_to do |format|
+        format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_back(fallback_location: root_url, notice: "Not authorized!")
     end
   end
 
@@ -61,6 +67,13 @@ class ListingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
+    end
+
+    def ensure_current_user_is_buyer
+      if current_user != @listing.buyer
+        redirect_back fallback_location: root_url,
+        alert: "You're not authorized for that."
+      end
     end
 
     # Only allow a list of trusted parameters through.

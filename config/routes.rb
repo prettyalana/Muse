@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  root "landing_page#show"
+
+
+
+
+  devise_for :users, controllers: { registrations: 'user/registrations' }
+
   resources :messages
   resources :offers
   resources :categories
   resources :listings
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  root "landing_page#index"
+  get "/home" => "home#show"
+  get "/:username" => "users#show", as: :user
 end

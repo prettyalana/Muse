@@ -1,0 +1,35 @@
+<% stylesheet_link_tag('landing_page')%>
+
+<div class="top">
+  <div class="nav">
+    <div class="logo">
+      <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
+    </div>
+    <div class="sign-in">
+      <div class="sign-in-link">
+        <%= link_to "sign in", new_user_session_path, class: "link" %>
+      </div>
+      <div class="color-changer">
+      Color
+      <input type="color">
+      <script>
+        const changer = document.querySelector("div.color-changer input");
+        const bodyTag = document.querySelector("body");
+
+        changer.addEventListener("input", function() {
+        bodyTag.style.backgroundColor = changer.value;
+        })
+      </script>
+  </div>
+    </div>
+  </div>
+
+  <section class="box">
+    <%= video_tag("/assets/7392503-hd_1920_1080_25fps.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
+    <div class="box-content">
+        <h1 class="logo-name">Muse</h1>
+      <h3 class="caption">A brand new shopping experience</h3>
+      <%= link_to "Get Started", new_user_registration_path, class: "boxBtn" %>
+    </div>
+  </section>
+</div>

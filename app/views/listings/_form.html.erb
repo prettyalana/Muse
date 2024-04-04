@@ -23,17 +23,7 @@
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
-  </div>
-
-  <div>
-    <%= form.label :buyer_id, style: "display: block" %>
-    <%= form.number_field :buyer_id %>
-  </div>
-
-  <div>
-    <%= form.label :purchased, style: "display: block" %>
-    <%= form.check_box :purchased %>
+    <%= collection_select(:listing, :category_id, Category.all, :id, :name ) %>
   </div>
 
   <div>

@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %> <%= current_user.username %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -10,6 +10,37 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :image,
+                required: false,
+                autofocus: true
+                %>
+    <%= f.input :bio,
+                required: false,
+                autofocus: true
+                %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :name,
+                required: true
+                %>
+    <%= f.input :username,
+                required: true,
+                autofocus: true
+                %>
+    <%= f.input :address,
+                required: true,
+                autofocus: true
+                %>
+    <%= f.input :location,
+                required: true,
+                autofocus: true
+                %>                        
+    <%# <%= f.input :account_type,
+                required: true,
+                autofocus: true
+                %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -27,9 +58,10 @@
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
-
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <h3>Cancel my account</h3>
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+</div>
