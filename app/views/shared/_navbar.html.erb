@@ -1,23 +1,36 @@
 <div class="navbar">
- <a href="#home"><i class="fa-solid fa-house"></i></a> 
+
+  <% if user_signed_in? %>
+    <%= link_to home_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  <% end %>
+
  <% if user_signed_in? %>
-    <%= link_to :messages do %>
-    <i class="fa-solid fa-comments"></i>
+    <%= link_to messages_path do %>
+      <i class="fa-solid fa-comments"></i>
     <% end %>
   <% end %>
   
 
-  <%= link_to new_listing_path do %>
-    <i class="fa-solid fa-plus"></i>
+  <% if user_signed_in? && current_user.buyer? %>
+    <%= link_to new_listing_path do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  <% elsif user_signed_in? && current_user.seller? %>
+    <%= link_to new_offer_path do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
   <% end %>
 
-  <%= link_to :listings do %>
-    <i class="fa-solid fa-bag-shopping"></i>
+  <% if user_signed_in? %>
+    <%= link_to current_user.username do %>
+      <i class="fa-solid fa-bag-shopping"></i>
+    <% end %>
   <% end %>
 
   <% if user_signed_in? %>
     <%= link_to edit_user_registration_path do %>
-    <%# "#{current_user.username}", %>
       <i class="fa-solid fa-user"></i>
     <% end %>
   <% end %>

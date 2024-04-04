@@ -1,9 +1,13 @@
-<h1>New listing</h1>
+<% stylesheet_link_tag('new_listing')%>
 
-<%= render "form", listing: @listing %>
+<div class="new-listing">
+  <h1>New listing</h1>
 
-<br>
+  <%= render "form", listing: @listing %>
 
-<div>
+  <br>
+
+  <div>
   <%= link_to "Back to listings", listings_path %>
+  </div>
 </div>

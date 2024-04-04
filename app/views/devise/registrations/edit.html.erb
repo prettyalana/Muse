@@ -10,6 +10,37 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :image,
+                required: false,
+                autofocus: true
+                %>
+    <%= f.input :bio,
+                required: false,
+                autofocus: true
+                %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :name,
+                required: true
+                %>
+    <%= f.input :username,
+                required: true,
+                autofocus: true
+                %>
+    <%= f.input :address,
+                required: true,
+                autofocus: true
+                %>
+    <%= f.input :location,
+                required: true,
+                autofocus: true
+                %>                        
+    <%# <%= f.input :account_type,
+                required: true,
+                autofocus: true
+                %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -33,3 +64,4 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+</div>

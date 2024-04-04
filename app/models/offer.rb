@@ -23,6 +23,7 @@
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
+  #reconsider this 
   belongs_to :message
 
   #after_update :marked_purchased

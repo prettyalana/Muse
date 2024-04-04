@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<% stylesheet_link_tag('messages')%>
 
 <h1>Messages</h1>
 
+<div class="new-message">
+      <%= link_to "New message", new_message_path %>
+    </div>
+
 <div id="messages">
-  <% @messages.each do |message| %>
-    <%= render message %>
-    <p>
-      <%= link_to "Show this message", message %>
-    </p>
+  <% @messages.each do |listing_id, messages| %>
+    <h4><%= listing_id %></h4>
+    <% messages.each do |message| %>
+      <div class="message">
+        <%= render message %>
+      </div>
+    <% end %>
+    <div class="new-message">
+      <%= link_to "New message", new_message_path %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New message", new_message_path %>

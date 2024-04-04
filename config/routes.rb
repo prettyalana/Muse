@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "listings#index"
+  root "landing_page#show"
 
 
 
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :listings
 
+  get "/home" => "home#show"
   get "/:username" => "users#show", as: :user
 end

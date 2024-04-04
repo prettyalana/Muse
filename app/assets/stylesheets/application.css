@@ -14,8 +14,23 @@
  *= require_self
  */
 
+ * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+ }
+
+ body {
+  background: rgb(252, 241, 243);
+ }
+
+ ul {
+  list-style: none;
+ }
+
  .navbar {
-  background: pink;
+  background: rgb(255, 220, 229);
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -26,9 +41,6 @@
  }
 
  .navbar a {
-  /* float: left;
-  display: block;
-  text-align: center; */
   padding: 20px 30px;
   text-decoration: none;
   font-size: 17px;
@@ -39,10 +51,6 @@
  }
 
  .navbar a.active {
-  background: rgb(250, 150, 167);
   color: white;
  }
 
- .home {
-  border: 5px solid red;
- }
