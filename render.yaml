@@ -2,7 +2,7 @@ databases:
   - name: muse
     plan: free
     databaseName: muse
-    user: muse
+    user: muse_user
 
 services:
   - type: web
@@ -10,7 +10,7 @@ services:
     plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "./bin/render-start.sh"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
