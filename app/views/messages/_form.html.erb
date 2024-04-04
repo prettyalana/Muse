@@ -14,24 +14,11 @@
   <div>
     <%= form.label :sender_id, style: "display: block" %> 
     <%= collection_select(:message, :recipient_id, User.all, :id, :username) %> 
-    <%#= form.number_field :sender_id %>
-  </div>
-
-
-  <div>
-    <%#= form.hidden_field :sender_id, value:"#{current_user.username}" %>
-    <%# <%= collection_select(:message, :sender_id, User.all, :id, :username)%> 
-  </div>
-
-  <div>
-    <%#= form.search_field :recipient_id%>
   </div>
 
   <div>
     <%= form.label :recipient_id, style: "display: block" %>
     <%= collection_select(:message, :sender_id, User.all, :id, :username) %> 
-    <%#= form.hidden_field :recipient_id, value:"#{message.sender_id}" %>
-    <%#= form.number_field :recipient_id %>
   </div>
 
   <div>
