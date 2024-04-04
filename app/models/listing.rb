@@ -9,19 +9,31 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  buyer_id    :integer          not null
-#  category_id :integer
+#  category_id :integer          not null
 #
 # Indexes
 #
-#  index_listings_on_buyer_id  (buyer_id)
+#  index_listings_on_buyer_id     (buyer_id)
+#  index_listings_on_category_id  (category_id)
 #
 # Foreign Keys
 #
-#  buyer_id  (buyer_id => users.id)
+#  buyer_id     (buyer_id => users.id)
+#  category_id  (category_id => categories.id)
 #
 class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User"
+  belongs_to :category, class_name: "Category"
+
+  has_many :messages, class_name: "Message"
+  has_many :offers, through: :messages
+
 
   validates :caption, presence: true
   validates :image, presence: true
+
+  scope :purchased_listings, -> { where(purchased: true) }
+
+  scope :listing, -> { where(current_user: true)}
+  #enum purchased: { true: "purchased", false: "not_purchased" }
 end
