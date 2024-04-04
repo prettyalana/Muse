@@ -54,7 +54,7 @@ task({ :sample_data => :environment }) do
 
   p "Created #{Listing.all.count} listings."
 
-  # Ensure there is at least one user with no listings
+  
   User.all.sample.listings.destroy_all
 
   Listing.purchased_listings.each do |listing|
@@ -82,11 +82,10 @@ task({ :sample_data => :environment }) do
           Offer.create(
             description: Faker::Lorem.sentence,
             image: "https://robohash.org/#{rand(9999)}",
-            price: rand(1000), # fix this
+            price: rand(1000),
             listing_id: listing.id,
             seller_id: message.sender_id,
             message_id: message.id
-            # status: # add this later
           )
         end
       end
@@ -101,11 +100,3 @@ task({ :sample_data => :environment }) do
   p "There are now #{Message.count} messages."
   p "There are now #{Offer.count} offers."
 end
-
-# This is if I want only the "clothing", "shoes", and "accessories" categories to be present in my database
-
-# ["clothing", "shoes", "accessories"].each do | category |
-#   Category.create(
-#   name: category
-# )
-# end

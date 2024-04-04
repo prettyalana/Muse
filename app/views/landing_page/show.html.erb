@@ -1,25 +1,29 @@
 <% stylesheet_link_tag('landing_page')%>
-<script src="color-changer.js"></script>
 
 <div class="top">
   <div class="nav">
     <div class="logo">
       <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
     </div>
-    <div class="sign-in">
-      <%= link_to "sign in", new_user_session_path%>
-      <%# add this later %>
-      <%# <div class="color-changer">
+    <div class="color-changer">
         Color
         <input type="color">
-      </div> %>
+        <script>
+          const changer = document.querySelector("div.color-changer input");
+          const bodyTag = document.querySelector("body");
+
+          changer.addEventListener("input", function() {
+          bodyTag.style.backgroundColor = changer.value;
+          })
+        </script>
+      </div>
+    <div class="sign-in">
+      <%= link_to "sign in", new_user_session_path%>
     </div>
   </div>
 
   <section class="box">
     <%= video_tag("/assets/7392503-hd_1920_1080_25fps.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
-    <%# add this later %>
-    <%# <%= video_tag("/assets/7317434-hd_1080_1920_25fps.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
     <div class="box-content">
         <h1 class="logo-name">Muse</h1>
       <h3 class="caption">A brand new shopping experience</h3>
@@ -27,10 +31,3 @@
     </div>
   </section>
 </div>
-
-<%# add this later %>
-<%# <div class="bottom">
-  <div class="information-cards">
-
-  </div>
-</div> %>
