@@ -5,20 +5,22 @@
     <div class="logo">
       <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
     </div>
-    <div class="color-changer">
-        Color
-        <input type="color">
-        <script>
-          const changer = document.querySelector("div.color-changer input");
-          const bodyTag = document.querySelector("body");
-
-          changer.addEventListener("input", function() {
-          bodyTag.style.backgroundColor = changer.value;
-          })
-        </script>
-      </div>
     <div class="sign-in">
-      <%= link_to "sign in", new_user_session_path%>
+      <div class="sign-in-link">
+        <%= link_to "sign in", new_user_session_path, class: "link" %>
+      </div>
+      <div class="color-changer">
+      Color
+      <input type="color">
+      <script>
+        const changer = document.querySelector("div.color-changer input");
+        const bodyTag = document.querySelector("body");
+
+        changer.addEventListener("input", function() {
+        bodyTag.style.backgroundColor = changer.value;
+        })
+      </script>
+  </div>
     </div>
   </div>
 
