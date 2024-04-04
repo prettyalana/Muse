@@ -10,18 +10,12 @@ body {
 
 .card-container {
   width: 50%;
-  /* display: flex; */
   display: grid;
   gap: 50px;
-  /* flex-wrap: wrap; */
 }
 
 .card {
-  /* border-radius: 5px; */
   box-shadow: 0 4px 8px 0 pink;
-  /* transition: 0.3s; */
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .card-img-top {

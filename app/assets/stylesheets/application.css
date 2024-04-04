@@ -41,9 +41,6 @@
  }
 
  .navbar a {
-  /* float: left;
-  display: block;
-  text-align: center; */
   padding: 20px 30px;
   text-decoration: none;
   font-size: 17px;
@@ -57,6 +54,12 @@
   color: white;
  }
 
- .home {
+ /* .home {
   border: 5px solid red;
- }
+ } */
+
+ /* @media (max-width: 380px) {
+  .navbar {
+    gap: 20px;
+  }
+ } */
