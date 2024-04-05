@@ -6,12 +6,11 @@
     <% end %>
   <% end %>
 
- <% if user_signed_in? %>
+  <% if user_signed_in? %>
     <%= link_to messages_path do %>
       <i class="fa-solid fa-comments"></i>
     <% end %>
   <% end %>
-  
 
   <% if user_signed_in? && current_user.buyer? %>
     <%= link_to new_listing_path do %>

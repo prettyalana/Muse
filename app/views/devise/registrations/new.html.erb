@@ -7,8 +7,6 @@
 <h5>Welcome to Muse</h5>
 <h5>An app made for the customer by the customer</h5>
 
-
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -39,7 +37,7 @@
     <%= f.input :location,
                 required: true,
                 autofocus: true
-                %>                        
+                %>
     <%= f.input :account_type,
                 required: true,
                 autofocus: true

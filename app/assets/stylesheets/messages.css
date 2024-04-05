@@ -1,7 +1,7 @@
 .message {
-  padding-left: .5rem;
-  border: .0625rem solid grey;
-  margin: .3125rem 0 .3125rem 0;
+  padding-left: 0.5rem;
+  border: 0.0625rem solid grey;
+  margin: 0.3125rem 0 0.3125rem 0;
 }
 
 .new-message {

@@ -14,22 +14,22 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
- }
+}
 
- body {
+body {
   background: rgb(252, 241, 243);
- }
+}
 
- ul {
+ul {
   list-style: none;
- }
+}
 
- .navbar {
+.navbar {
   background: rgb(255, 220, 229);
   overflow: hidden;
   position: fixed;
@@ -38,19 +38,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
- }
+}
 
- .navbar a {
+.navbar a {
   padding: 20px 30px;
   text-decoration: none;
   font-size: 17px;
- }
+}
 
- .navbar a:hover {
+.navbar a:hover {
   background: rgb(253, 251, 252);
- }
+}
 
- .navbar a.active {
+.navbar a.active {
   color: white;
- }
-
+}

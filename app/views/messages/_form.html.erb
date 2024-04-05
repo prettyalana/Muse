@@ -12,18 +12,18 @@
   <% end %>
 
   <div>
-    <%= form.label :sender_id, style: "display: block" %> 
-    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %> 
+    <%= form.label :sender_id, style: "display: block" %>
+    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %>
   </div>
 
   <div>
     <%= form.label :recipient_id, style: "display: block" %>
-    <%= collection_select(:message, :sender_id, User.all, :id, :username) %> 
+    <%= collection_select(:message, :sender_id, User.all, :id, :username) %>
   </div>
 
   <div>
-    <%= form.label :listing_id, style: "display: block" %> 
-    <%= collection_select(:message, :listing_id, Listing.all, :id, :caption) %>  
+    <%= form.label :listing_id, style: "display: block" %>
+    <%= collection_select(:message, :listing_id, Listing.all, :id, :caption) %>
   </div>
 
   <div>
