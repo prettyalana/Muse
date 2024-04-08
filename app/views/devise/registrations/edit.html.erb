@@ -37,10 +37,6 @@
                 required: true,
                 autofocus: true
                 %>
-    <%# <%= f.input :account_type,
-                required: true,
-                autofocus: true
-                %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -61,7 +57,7 @@
 <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <h3>Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
 </div>
