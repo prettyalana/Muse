@@ -1,13 +1,34 @@
 <% stylesheet_link_tag('home')%>
 
-<div class="logo">
+  <div class="logo">
     <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
-</div>
-<div class="title">
-  <h2> Find what you're looking for today</h2>
-</div>
+  </div>
+  <div class="title">
+    <h2> Find what you're looking for today</h2>
+  </div>
 
-<div class="home-video">
-  <%= video_tag("/assets/8798295-uhd_4096_2160_25fps.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
-</div>
+  <div class="home-video">
+    <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
+  </div>
 
+  <div class="latest-listings">
+    <% @listings.each do |listing|%>
+      <%= render "listings/listing", listing: listing %>
+      <div class="card">
+        <h5 class="card-title">
+          <%= listing.buyer.image %>
+          <%= listing.buyer.username %></h5>
+        <%= image_tag listing.image, class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card-text"><%= listing.caption %></p>
+
+          <%if current_user.seller?%>
+            <%= link_to new_message_path do %>
+              <i class="fa-regular fa-message"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

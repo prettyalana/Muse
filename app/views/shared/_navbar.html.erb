@@ -23,7 +23,7 @@
   <% end %>
 
   <% if user_signed_in? %>
-    <%= link_to current_user.username do %>
+    <%= link_to user_path(current_user.username) do %>
       <i class="fa-solid fa-bag-shopping"></i>
     <% end %>
   <% end %>
