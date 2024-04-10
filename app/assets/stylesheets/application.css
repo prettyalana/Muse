@@ -40,14 +40,6 @@ ul {
   align-items: center;
 }
 
-.btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: .5rem;
-}
-
 .navbar a {
   padding: 20px 30px;
   text-decoration: none;
