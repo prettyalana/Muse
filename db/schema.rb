@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", default: "clothing"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,9 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "buyer_id", null: false
-    t.integer "category_id", null: false
+    t.boolean "category_id"
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
-    t.index ["category_id"], name: "index_listings_on_category_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -73,10 +72,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
     t.text "description"
     t.integer "listing_id"
     t.decimal "price"
-    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "seller_id", null: false
+    t.integer "message_id"
     t.index ["seller_id"], name: "index_offers_on_seller_id"
   end
 
@@ -100,9 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "listings", "categories"
   add_foreign_key "listings", "users", column: "buyer_id"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"

@@ -1,0 +1,11 @@
+<%= form_with(model: listing) do |form| %>
+  <%= form.label :purchased, "Purchased" %>
+    <%= form.radio_button :purchased, "true"%>
+    <%= form.label :purchased, "true" %>
+    <%= form.radio_button :purchased, "false"%>
+    <%= form.label :purchased, "false" %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
