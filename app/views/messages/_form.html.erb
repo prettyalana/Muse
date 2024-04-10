@@ -12,13 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :sender_id, style: "display: block" %>
-    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %>
-  </div>
-
-  <div>
     <%= form.label :recipient_id, style: "display: block" %>
-    <%= collection_select(:message, :sender_id, User.all, :id, :username) %>
+    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %>
   </div>
 
   <div>

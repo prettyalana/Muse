@@ -5,3 +5,14 @@
 body {
   font-family: 'Alumni Sans Pinstripe', sans-serif;
 }
+
+.latest-listings {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 3.125rem;
+}
+
+.home-sub-header {
+  text-align: center;
+}

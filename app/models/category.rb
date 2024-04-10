@@ -3,7 +3,7 @@
 # Table name: categories
 #
 #  id         :integer          not null, primary key
-#  name       :string           default("clothing")
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
