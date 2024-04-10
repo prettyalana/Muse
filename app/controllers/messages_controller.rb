@@ -3,8 +3,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    # @messages = Message.joins(:listing).where(listings: { buyer_id: current_user.id }).or(listings: { buyer_id: current_user.id }).group_by(&:listing_id)
-    @messages = Message.where(sender: current_user ).or(Message.where(recipient: current_user )).group_by(&:listing_id)
+    @messages = Message.joins(:listing).where(listings: { buyer_id: current_user.id }).group_by(&:listing_id)
     # @messages = Message.joins(:listing, :offer).where(listings: { buyer_id: current_user.id}, offers: { seller_id: current_user.id}).group_by(&:listing_id)
   end
   # GET /messages/1 or /messages/1.json
@@ -67,6 +66,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit( :recipient_id,:listing_id, :body)
+      params.require(:message).permit( :recipient_id, :listing_id, :body)
     end
 end
