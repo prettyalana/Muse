@@ -1,4 +1,11 @@
-<% stylesheet_link_tag('users')%>
+<h1><%= @user.username %>'s profile</h1>
+<div class="profile">
+  <%= image_tag @user.image, class: "profile-pic"%>
+  <%= @user.bio %>
+  <%= @user.name%>
+  <%= @user.location %>
+</div>
+
 <h1 class="page_header">
   <%if current_user.buyer? %>
     <%= @user.username %>'s listings
@@ -12,33 +19,35 @@
     <% current_user.listings.each do |listing|%>
       <div class="card">
         <h5 class="card-title">
-          <%= listing.buyer.image %>
-          <%= listing.buyer.username %></h5>
-        <%= image_tag listing.image, class: "card-img-top" %>
-        <div class="card-body">
-          <p class="card-text"><%= listing.caption %></p>
-
-          <%if current_user.seller?%>
-            <%= link_to new_message_path do %>
-              <i class="fa-regular fa-message"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% else %>
-    <% if current_user.seller?%>
-      <% current_user.sent_offers.each do |offer|%>
-        <div class="card">
-          <h5 class="card-title">
-            <%= offer.seller.image %>
-            <%= offer.seller.username %></h5>
-          <%= image_tag offer.image, class: "card-img-top" %>
+          <%= image_tag listing.buyer.image, class:"profile-picture" %>
+          <%= link_to listing.buyer.username %></h5>
+        <%= link_to edit_listing_path(current_user, listing) %>
+        <%# <%= link_to user_path(current_user.username) do %>
+          <%= image_tag listing.image, class: "card-img-top" %>
           <div class="card-body">
-            <p class="card-text"><%= offer.description %></p>
+            <p class="card-text"><%= listing.caption %></p>
+
+            <%if current_user.seller?%>
+              <%= link_to new_message_path do %>
+                <i class="fa-regular fa-message"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <% end %>
+    <% else %>
+      <% if current_user.seller?%>
+        <% current_user.sent_offers.each do |offer|%>
+          <div class="card">
+            <h5 class="card-title">
+              <%= offer.seller.image %>
+              <%= offer.seller.username %></h5>
+            <%= image_tag offer.image, class: "card-img-top" %>
+            <div class="card-body">
+              <p class="card-text"><%= offer.description %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
 .top {
   height: 50%;
@@ -57,7 +57,23 @@ section {
   .nav {
     flex-direction: column;
   }
+}
 
+.box {
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.box video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .box-content {
@@ -65,29 +81,49 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: .625rem;
+  gap: 0.625rem;
+  margin-top: 6.25rem;
 }
 
 .logo-name {
-  font-family: 'Sacramento', sans-serif;
+  font-family: "Sacramento", sans-serif;
+  font-size: 5rem;
 }
 
+.caption {
+  font-size: 1.875rem;
+}
+
+.sign-in,
 .boxBtn {
   text-align: center;
-  width: 20%;
-  padding: 16px;
+  padding: 16px 24px;
   border-radius: 5px;
   background: rgb(250, 217, 223);
-  box-shadow: 0 0 30px 0 rgb(250, 217, 223), 0 0 30px 0 rgb(249, 218, 223), 0 0 10px 0 rgb(249, 220, 225) inset;
+  box-shadow: 0 0 30px 0 rgb(250, 217, 223), 0 0 30px 0 rgb(249, 218, 223),
+    0 0 10px 0 rgb(249, 220, 225) inset;
   border: 1px solid white;
+  transition: all 0.5s;
+}
+
+.sign-in:hover {
+  background: white;
 }
 
 .boxBtn:hover {
   background: white;
 }
 
-div.color-changer {
+@media (max-width: 800px) {
+  .box {
+    min-height: 600px;
+  }
+  .boxBtn {
+    padding: 15px 40px;
+  }
+}
 
+div.color-changer {
   border: 2px solid black;
   padding: 8px 16px 8px 16px;
   border-radius: 50px;
@@ -99,12 +135,6 @@ div.color-changer input {
   top: 1;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   opacity: 0;
-}
-
-.div-with-background {
-  width: 100%;
-  height: 80vh;
-  background-size: contain;
 }
