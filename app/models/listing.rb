@@ -9,17 +9,15 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  buyer_id    :integer          not null
-#  category_id :integer          not null
+#  category_id :boolean
 #
 # Indexes
 #
-#  index_listings_on_buyer_id     (buyer_id)
-#  index_listings_on_category_id  (category_id)
+#  index_listings_on_buyer_id  (buyer_id)
 #
 # Foreign Keys
 #
-#  buyer_id     (buyer_id => users.id)
-#  category_id  (category_id => categories.id)
+#  buyer_id  (buyer_id => users.id)
 #
 class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User"

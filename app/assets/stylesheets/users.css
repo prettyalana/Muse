@@ -3,9 +3,35 @@ body {
   display: flex;
 }
 
-.page_header {
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.page-header {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .card-container {

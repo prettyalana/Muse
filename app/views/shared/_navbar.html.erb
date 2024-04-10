@@ -1,36 +1,47 @@
 <div class="navbar">
 
   <% if user_signed_in? %>
-    <%= link_to home_path do %>
+    <%= link_to home_path, class: "btn" do %>
       <i class="fa-solid fa-house"></i>
+      <p>Home</p>
     <% end %>
   <% end %>
 
   <% if user_signed_in? %>
-    <%= link_to messages_path do %>
+    <%= link_to messages_path, class: "btn" do %>
       <i class="fa-solid fa-comments"></i>
+      <p>Messages</p>
     <% end %>
   <% end %>
 
   <% if user_signed_in? && current_user.buyer? %>
-    <%= link_to new_listing_path do %>
+    <%= link_to new_listing_path, class: "btn" do %>
       <i class="fa-solid fa-plus"></i>
+      <p>New Listing</p>
     <% end %>
   <% elsif user_signed_in? && current_user.seller? %>
-    <%= link_to new_offer_path do %>
+    <%= link_to new_offer_path, class: "btn" do %>
       <i class="fa-solid fa-plus"></i>
+      <p>New Offer</p>
     <% end %>
   <% end %>
 
-  <% if user_signed_in? %>
-    <%= link_to user_path(current_user.username) do %>
+  <% if user_signed_in? && current_user.buyer? %>
+    <%= link_to user_path(current_user.username), class: "btn" do %>
       <i class="fa-solid fa-bag-shopping"></i>
+      <p>Listings</p>
+    <% end %>
+  <% elsif user_signed_in? && current_user.seller? %>
+    <%= link_to user_path(current_user.username), class: "btn" do %>
+      <i class="fa-solid fa-bag-shopping"></i>
+      <p>Offers</p>
     <% end %>
   <% end %>
 
   <% if user_signed_in? %>
-    <%= link_to edit_user_registration_path do %>
+    <%= link_to edit_user_registration_path, class: "btn" do %>
       <i class="fa-solid fa-user"></i>
+      <p>Edit Profile</p>
     <% end %>
   <% end %>
 </div>
