@@ -1,6 +1,6 @@
 <h1><%= current_user.username %>'s profile</h1>
 <div class="profile-info">
-  <%# <%= @user.image, class: "profile-picture"%> %>
+  <%= @user.image, class: "profile-picture"%>
   <%= current_user.bio %>,
   <%= current_user.name%>,
   <%= current_user.location %>
@@ -20,7 +20,9 @@
       <div class="card">
         <h5 class="card-title">
           <div class="left-side">
-            <%= image_tag listing.buyer.image, class:"profile-picture" %>
+            <%if listing.buyer.image != nil%>
+              <%= image_tag listing.buyer.image, class:"profile-picture" %>
+            <% end %>
             <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
           </div>
           <div class="right-side">
