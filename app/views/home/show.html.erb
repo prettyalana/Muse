@@ -18,7 +18,7 @@
         <%if listing.buyer.image != nil%>
           <%= image_tag listing.buyer.image, class:"profile-picture" %>
         <% end %>
-        link_to listing.buyer.username, user_path(listing.buyer.username)
+        <% link_to listing.buyer.username, user_path(listing.buyer.username) %>
       </h5>
       <%= image_tag listing.image, class: "card-img-top" %>
       <div class="card-body">

@@ -1,6 +1,6 @@
 <h1><%= current_user.username %>'s profile</h1>
 <div class="profile-info">
-  <%= @user.image, class: "profile-picture"%>
+  <%= image_tag(@user.image, class: "profile-picture") if @user.image.present? %>
   <%= current_user.bio %>,
   <%= current_user.name%>,
   <%= current_user.location %>
@@ -29,16 +29,14 @@
             <%= link_to edit_listing_path(listing) do %>
               <i class="fa-solid fa-ellipsis"></i>
             <% end %>
-            
-            <%= form_with(model: listing) do |form| %>
-                <%= form.hidden_field :purchased, value: "true"%>
 
+            <%= form_with(model: listing) do |form| %>
+              <%= form.hidden_field :purchased, value: "true"%>
 
               <div>
                 <%= form.submit "Purchased" %>
               </div>
             <% end %>
-
 
           </div>
         </h5>
