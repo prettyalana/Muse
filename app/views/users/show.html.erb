@@ -1,27 +1,27 @@
-<h1><%= current_user.username %>'s profile</h1>
+<h1><%= @user.username %>'s profile</h1>
 <div class="profile-info">
   <%= image_tag(@user.image, class: "profile-picture") if @user.image.present? %>
-  <%= current_user.bio %>,
-  <%= current_user.name%>,
-  <%= current_user.location %>
+  <%= @user.bio %>,
+  <%= @user.name%>,
+  <%= @user.location %>
 </div>
 
 <h1 class="page-header">
-  <%if current_user.buyer? %>
-    <%= current_user.username %>'s listings
+  <%if @user.buyer? %>
+    <%= @user.username %>'s listings
   <% else %>
-    <%= current_user.username%>'s offers
+    <%= @user.username%>'s offers
   <% end %>
 </h1>
 
 <div class="card-container">
-  <%if current_user.buyer? %>
-    <% current_user.listings.each do |listing| %>
+  <%if @user.buyer? %>
+    <% @user.listings.each do |listing| %>
       <%= render "listings/card", listing: listing %>
     <% end %>
   <% else %>
-    <% if current_user.seller?%>
-      <% current_user.sent_offers.each do |offer|%>
+    <% if @user.seller?%>
+      <% @user.sent_offers.each do |offer|%>
         <div class="card">
           <h5 class="card-title">
             <%= offer.seller.image %>
