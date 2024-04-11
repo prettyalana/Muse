@@ -1,21 +1,22 @@
 <div class="logo">
   <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
 </div>
+
 <div class="title">
   <h2> Find what you're looking for today</h2>
 </div>
 
 <div class="home-video">
-  <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
+  <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, autobuffer: true, width: "100%")%>
 </div>
 
 <div class="latest-listings">
-  <h1>Discover the most recent listings</h1>
+   <h1 class= "home-sub-header">Discover the most recent listings</h1>
   <% @listings.each do |listing|%>
     <div class="card">
-      <h5 class="card-title">
+      <h5>
         <%= image_tag listing.buyer.image, class:"profile-picture" %>
-        <%= link_to listing.buyer.username %>
+        <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
       </h5>
       <%= image_tag listing.image, class: "card-img-top" %>
       <div class="card-body">
@@ -29,5 +30,4 @@
       </div>
     </div>
   <% end %>
-</div>
 </div>

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-* {
+ * {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -38,6 +38,14 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
 }
 
 .navbar a {

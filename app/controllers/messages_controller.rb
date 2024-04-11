@@ -3,8 +3,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.joins(:listing).where(listings: { buyer_id: current_user.id }).group_by(&:listing_id)
-    # @messages = Message.joins(:listing, :offer).where(listings: { buyer_id: current_user.id}, offers: { seller_id: current_user.id}).group_by(&:listing_id)
+    @messages = Message.where(sender: current_user ).or(Message.where(recipient: current_user )).group_by(&:listing_id)
   end
   # GET /messages/1 or /messages/1.json
   def show
