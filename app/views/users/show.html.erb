@@ -1,22 +1,22 @@
-<h1><%= @user.username %>'s profile</h1>
+<h1><%= current_user.username %>'s profile</h1>
 <div class="profile-info">
-  <%= image_tag @user.image, class: "profile-picture"%>
-  <%= @user.bio %>,
-  <%= @user.name%>,
-  <%= @user.location %>
+  <%= image_tag current_user.image, class: "profile-picture"%>
+  <%= current_user.bio %>,
+  <%= current_user.name%>,
+  <%= current_user.location %>
 </div>
 
 <h1 class="page-header">
-  <%if @user.buyer? %>
-    <%= @user.username %>'s listings
+  <%if current_user.buyer? %>
+    <%= current_user.username %>'s listings
   <% else %>
-    <%= @user.username%>'s offers
+    <%= current_user.username%>'s offers
   <% end %>
 </h1>
 
 <div class="card-container">
-  <%if @user.buyer? %>
-    <% @user.listings.each do |listing|%>
+  <%if current_user.buyer? %>
+    <% current_user.listings.each do |listing|%>
       <div class="card">
         <h5 class="card-title">
           <div class="left-side">
@@ -44,7 +44,7 @@
         <div class="card-body">
           <p class="card-text"><%= listing.caption %></p>
 
-          <%if @user.seller?%>
+          <%if current_user.seller?%>
             <%= link_to new_message_path do %>
               <i class="fa-regular fa-message"></i>
             <% end %>
@@ -53,8 +53,8 @@
       </div>
     <% end %>
   <% else %>
-    <% if @user.seller?%>
-      <% @user.sent_offers.each do |offer|%>
+    <% if current_user.seller?%>
+      <% current_user.sent_offers.each do |offer|%>
         <div class="card">
           <h5 class="card-title">
             <%= offer.seller.image %>
