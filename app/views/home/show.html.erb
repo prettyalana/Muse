@@ -11,12 +11,12 @@
 </div>
 
 <div class="latest-listings">
-   <h1 class= "home-sub-header">Discover the most recent listings</h1>
+  <h1 class="home-sub-header">Discover the most recent listings</h1>
   <% @listings.each do |listing|%>
     <div class="card">
-      <h5>
+      <h5 class="card-title">
         <%= image_tag listing.buyer.image, class:"profile-picture" %>
-        <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
+        <%= link_to listing.buyer.username %>
       </h5>
       <%= image_tag listing.image, class: "card-img-top" %>
       <div class="card-body">
