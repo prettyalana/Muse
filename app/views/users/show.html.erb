@@ -16,41 +16,8 @@
 
 <div class="card-container">
   <%if current_user.buyer? %>
-    <% current_user.listings.each do |listing|%>
-      <div class="card">
-        <h5 class="card-title">
-          <div class="left-side">
-            <%if listing.buyer.image != nil%>
-              <%= image_tag listing.buyer.image, class:"profile-picture" %>
-            <% end %>
-            <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
-          </div>
-          <div class="right-side">
-            <%= link_to edit_listing_path(listing) do %>
-              <i class="fa-solid fa-ellipsis"></i>
-            <% end %>
-
-            <%= form_with(model: listing) do |form| %>
-              <%= form.hidden_field :purchased, value: "true"%>
-
-              <div>
-                <%= form.submit "Purchased" %>
-              </div>
-            <% end %>
-
-          </div>
-        </h5>
-        <%= image_tag listing.image, class: "card-img-top" %>
-        <div class="card-body">
-          <p class="card-text"><%= listing.caption %></p>
-
-          <%if current_user.seller?%>
-            <%= link_to new_message_path do %>
-              <i class="fa-regular fa-message"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+    <% current_user.listings.each do |listing| %>
+      <%= render "listings/card", listing: listing %>
     <% end %>
   <% else %>
     <% if current_user.seller?%>
