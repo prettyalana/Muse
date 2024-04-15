@@ -1,9 +1,13 @@
-<h1>New offer</h1>
+<body class="offer-container">
 
-<%= render "form", offer: @offer %>
+  <h1>New offer</h1>
 
-<br>
+  <%= render "form", offer: @offer %>
 
-<div>
-  <%= link_to "Back to offers", offers_path %>
-</div>
+  <br>
+
+  <div>
+    <%= link_to "Back to offers", user_path(current_user.username) %>
+  </div>
+
+</body>

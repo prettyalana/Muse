@@ -1,11 +1,17 @@
 .message {
   padding-left: 0.5rem;
-  border: 0.0625rem solid grey;
+  border: 0.0625rem solid black;
   margin: 0.3125rem 0 0.3125rem 0;
 }
 
+.new-message-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.125rem;
+}
+
 .new-message {
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   display: flex;
   justify-content: center;
   margin-bottom: 3.125rem;

@@ -1,5 +1,5 @@
 body {
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
   display: flex;
 }
 
@@ -11,48 +11,64 @@ body {
 }
 
 .profile-picture {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 50px;
+  height: 50px;
 }
 
 .page-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
 }
 
 .card-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 .left-side {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .card-container {
   width: 50%;
   display: grid;
-  gap: 50px;
+  gap: 3.125rem;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 pink;
+  box-shadow: 0 .25rem .5rem 0 pink;
 }
 
 .card-img-top {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: .0625rem solid black;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px pink;
+  box-shadow: 0 .5rem 1rem pink;
 }
 
 .card-body {
-  padding: 2px 16px;
+  padding: .125rem 1rem;
+}
+
+.purchasedBtn {
+  margin: 8px 0px 8px 0px;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: rgb(250, 217, 223);
+  box-shadow: 0 0 1.875rem 0 rgb(250, 217, 223), 0 0 1.875rem 0 rgb(249, 218, 223),
+    0 0 .625rem 0 rgb(249, 220, 225) inset;
+  border: .0313rem solid white;
+  transition: all 0.5s;
+}
+
+.purchasedBtn:hover {
+  background: white;
 }

@@ -4,3 +4,102 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.modal {
+  display: flex;
+  background: white;
+  width: 70%;
+  height: 100%;
+  font-weight: 900;
+  border-radius: 10px;
+  margin-top: 3.125rem;
+}
+
+.left-content {
+  background-size: cover;
+  width: 55%;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 150px;
+}
+
+.left-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgb(255, 220, 229);
+  opacity: 0.75;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.left-header {
+  font-size: 30pt;
+}
+
+.left-text {
+  font-size: 10pt;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon-container {
+  height: 3%;
+  width: 3%;
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+  
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 35px;
+}
+
+.starting-prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.right-header {
+  font-size: 20pt;
+}
+
+
+.first-last-container {
+  display: flex;
+  gap: 10px;
+}
+
+.first-last-container {
+  display: flex;
+  flex-direction: column;
+  width: 48.60%;
+  gap: 10px;
+}
+
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sign-up-button {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

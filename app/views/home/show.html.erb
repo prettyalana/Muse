@@ -15,7 +15,7 @@
   <% @listings.each do |listing|%>
     <div class="card">
       <h5>
-        <%if listing.buyer.image != nil%>
+        <% if listing.buyer.image != nil %>
           <%= image_tag listing.buyer.image, class:"profile-picture" %>
         <% end %>
         <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
