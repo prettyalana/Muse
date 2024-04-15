@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
-  <%= link_to "Back to listings", listings_path %>
+  <%= link_to "Back to listings", user_path(current_user.username) %>
 
   <%= button_to "Destroy this listing", @listing, method: :delete %>
 </div>
