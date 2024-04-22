@@ -11,7 +11,9 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = Message.new()
+    @message.recipient_id = params[:recipient_id]
+    @message.listing_id = params[:listing_id]
   end
 
   # GET /messages/1/edit

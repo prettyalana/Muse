@@ -18,5 +18,11 @@
     <strong>Body:</strong>
     <%= message.body %>
   </p>
-
+  
+  <% if message.offer %>
+    <p>
+      <strong>Offer:</strong>
+      <%= link_to message.offer %>
+    </p>
+  <% end %>
 </div>

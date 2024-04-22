@@ -21,6 +21,7 @@
 #  sender_id     (sender_id => users.id)
 #
 class Message < ApplicationRecord
+  # TODO: Fix association
   has_one :offer, class_name: "Offer"
 
   belongs_to :recipient, class_name: "User"

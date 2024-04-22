@@ -23,22 +23,22 @@
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
-  #reconsider this 
-  belongs_to :message
 
-  #after_update :marked_purchased
+  after_create :offer_message
 
-  # add the counter offer and accepted boolean field to the offers
-  # enum status: { pending: "pending", countered: "countered", rejected: "rejected", accepted: "accepted"}
-  #
-  #private
-  #
-  #def marked_purchased
-   # if self.accepted
-    # self.listing.update(
-      # purchased: true
-    #)
-    #end
-  #end
+  private
 
+  def offer_message
+
+    offer_url = Rails.application.routes.url_helpers.offer_url(self)
+
+    message = Message.new(
+      listing: listing,
+      sender: seller,
+      recipient: listing.buyer,
+      body: "You have a new offer: #{offer_url}"
+    )
+
+    message.save
+  end
 end

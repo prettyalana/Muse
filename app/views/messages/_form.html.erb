@@ -12,13 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.label :recipient_id, style: "display: block" %>
-    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %>
+    <%= form.hidden_field :recipient_id %>
   </div>
 
   <div>
-    <%= form.label :listing_id, style: "display: block" %>
-    <%= collection_select(:message, :listing_id, Listing.all, :id, :caption) %>
+    <%= form.hidden_field :listing_id %>
   </div>
 
   <div>
