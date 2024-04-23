@@ -17,9 +17,8 @@
       </div>
       <div class="sign-up">
         <div class="form-inputs">
-          <%= f.input :image,
-                required: false,
-                autofocus: true
+          <%= f.file_field :avatar,
+                required: false
                 %>
           <%= f.input :bio,
                 required: false,
