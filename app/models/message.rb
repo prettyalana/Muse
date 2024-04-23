@@ -2,13 +2,13 @@
 #
 # Table name: messages
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  body         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  listing_id   :integer
-#  recipient_id :integer          not null
-#  sender_id    :integer          not null
+#  recipient_id :bigint           not null
+#  sender_id    :bigint           not null
 #
 # Indexes
 #
@@ -17,18 +17,13 @@
 #
 # Foreign Keys
 #
-#  recipient_id  (recipient_id => users.id)
-#  sender_id     (sender_id => users.id)
+#  fk_rails_...  (recipient_id => users.id)
+#  fk_rails_...  (sender_id => users.id)
 #
 class Message < ApplicationRecord
-  # TODO: Fix association
-  has_one :offer, class_name: "Offer"
-
   belongs_to :recipient, class_name: "User"
   belongs_to :sender, class_name: "User"
   belongs_to :listing
-
-  # scope :listing, -> { where(current_user: true)}
 
   validates :body, presence: true
 end
