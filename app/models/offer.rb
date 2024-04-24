@@ -30,7 +30,7 @@ class Offer < ApplicationRecord
 
   def offer_message
 
-    offer_url = Rails.application.routes.url_helpers.offer_url(self)
+    offer_url = Rails.application.routes.url_helpers.offer_url(self, host: 'muse-shopping.com')
 
     message = Message.new(
       listing: listing,
