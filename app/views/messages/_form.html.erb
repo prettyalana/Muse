@@ -12,7 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.hidden_field :recipient_id %>
+    <% if current_user.seller? %>
+      <%= form.hidden_field :recipient_id %>
+    <% else %>
+      <%= collection_select(:message, :recipient_id, User.seller, :id, :username)%>
+    <% end %>
   </div>
 
   <div>

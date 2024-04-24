@@ -24,7 +24,6 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
-    # TODO Add recipient_id
     respond_to do |format|
       if @message.save
         format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
