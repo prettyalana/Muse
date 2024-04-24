@@ -1,12 +1,12 @@
 <div id="<%= dom_id offer %>">
   <p>
     <strong>Seller:</strong>
-    <%= offer.seller.username %>
+    <%= link_to offer.seller.username %>
   </p>
 
   <p>
     <strong>Image:</strong>
-    <%= offer.image %>
+    <%= image_tag offer.image %>
   </p>
 
   <p>
@@ -22,11 +22,6 @@
   <p>
     <strong>Price:</strong>
     <%= offer.price %>
-  </p>
-
-  <p>
-    <strong>Message:</strong>
-    <%= offer.message_id %>
   </p>
 
 </div>

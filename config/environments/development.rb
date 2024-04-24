@@ -3,6 +3,10 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Allow server to be hosted on any URL
   config.hosts.clear
+  config.action_mailer.default_url_options = {
+    host: "localhost", port: 3000
+  }
+  routes.default_url_options[:host] = 'localhost:3000'
   # Allow better_errors to work in online IDE
   config.web_console.whitelisted_ips = "0.0.0.0/0.0.0.0"
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0.0.0.0"

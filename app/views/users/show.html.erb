@@ -22,15 +22,7 @@
   <% else %>
     <% if @user.seller?%>
       <% @user.sent_offers.each do |offer|%>
-        <div class="card">
-          <h5 class="card-title">
-            <%= offer.seller.image %>
-            <%= offer.seller.username %></h5>
-          <%= image_tag offer.image, class: "card-img-top" %>
-          <div class="card-body">
-            <p class="card-text"><%= offer.description %></p>
-          </div>
-        </div>
+        <%= render "offers/card", offer: offer %>
       <% end %>
     <% end %>
   <% end %>
