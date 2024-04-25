@@ -14,7 +14,7 @@
   <% end %>
 </h1>
 
-<div class="card-container">
+<div class="card-container" style="padding-bottom: 6.25rem;">
   <%if @user.buyer? %>
     <% @user.listings.each do |listing| %>
       <%= render "listings/card", listing: listing %>
