@@ -1,4 +1,4 @@
-<h1><%= @user.username %>'s profile</h1>
+<h1 class="profile-header"><%= @user.username %>'s profile</h1>
 <div class="profile-info">
   <%= image_tag(@user.image, class: "profile-picture") if @user.image.present? %>
   <%= @user.bio %>,

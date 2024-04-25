@@ -1,7 +1,15 @@
+.messages-container {
+  margin-top: 3.125rem;
+}
+
+.messages-header {
+  text-align: center;
+}
+
 .message {
-  padding-left: 0.5rem;
-  border: 0.0625rem solid black;
-  margin: 0.3125rem 0 0.3125rem 0;
+  padding-left: .5rem;
+  border: 1px solid black;
+  margin: .3125rem 0 .3125rem 0;
 }
 
 .new-message-top {
@@ -11,7 +19,7 @@
 }
 
 .new-message {
-  border: 0.0625rem solid black;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
   margin-bottom: 3.125rem;

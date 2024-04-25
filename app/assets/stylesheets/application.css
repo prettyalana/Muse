@@ -63,7 +63,7 @@ ul {
 }
 
 @media screen and (max-width: 545px) {
-  p {
+  .nav-text {
     display: none;
   }
 }
