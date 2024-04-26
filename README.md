@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">An app designed for the customer by the customer.<a href="http://muse-shopping.com" target="_blank">Muse</a>.</h4>
+<h4 align="center">An app designed for the customer by the customer</h4>
 
 Muse is a customer driven app that prioritizes the customer's needs by bringing the seller to the buyer. Instead of looking through countless listings only to not find what you’re looking for; you create a listing containing the item you want and the sellers, merchants, and retailers offer you the product. Additionally, we offer a social media-esque platform to help you curate your perfect shopping list; allowing you to organize what you’re looking for in aesthetically pleasing categories and giving your posts more visibility. 
 
