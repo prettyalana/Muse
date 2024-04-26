@@ -30,14 +30,14 @@ Just as users spend countless hours scrolling through various social media platf
 
 ## How To Use
 
-- Customers 
+# Customers 
 To get started, locate the get started option on the landing page and choose whether you sign up as a buyer or a seller. 
 - Navigate to the new listings tab or click the plus sign in the bottom navigation bar.
 - Upload a picture of the item you're looking for.
 - Provide a caption that contains a description or details about the item.
 - Post the item.
 
-- Sellers 
+# Sellers 
 
 Upon creating an account choose "seller".
 - Once signed in, navigate to the home page to message potential buyers.
