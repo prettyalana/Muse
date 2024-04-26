@@ -1,0 +1,19 @@
+<div class="card">
+  <h5>
+    <% if listing.buyer.image.present? %>
+      <%= image_tag listing.buyer.image, class: "profile-picture" %>
+    <% end %>
+    <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
+  </h5>
+  <%= image_tag listing.image, class: "card-img-top" %>
+  <div class="card-body">
+    <p class="card-text"><%= listing.caption %></p>
+
+    <% if current_user.seller? %>
+      <%= link_to new_message_path(recipient_id: listing.buyer, listing_id: listing.id) do %>
+        <i class="fa-regular fa-message"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
