@@ -1,21 +1,18 @@
-# Muse
-
-An app designed for the customer by the customer. 
-
-Muse is a customer driven app that prioritizes the customer's needs by bringing the seller to the buyer. Instead of looking through countless listings only to not find what you’re looking for; you create a listing containing the item you want and the sellers, merchants, and retailers offer you the product. Additionally, we offer a social media-esque platform to help you curate your perfect shopping list; allowing you to organize what you’re looking for in aesthetically pleasing categories and giving your posts more visibility. 
-
-## Pain Point 
-Just as users spend countless hours scrolling through various social media platforms. Online shoppers also spend a copious  amount of time scrolling through listings only to come away with absolutely nothing. To fix that, customers create the product listings because they know exactly what they want best.
-
 <h1 align="center">
   <br>
-  <a href="muse-shopping.com"><img src="app/assets/images/Muse-2.png" alt="Muse" width="200"></a>
+  <a href="muse-shopping.com">
+    <img src="app/assets/images/Muse-2.png" alt="Muse" width="200"></a>
   <br>
   Muse
   <br>
 </h1>
 
 <h4 align="center">An app designed for the customer by the customer.<a href="http://muse-shopping.com" target="_blank">Muse</a>.</h4>
+
+Muse is a customer driven app that prioritizes the customer's needs by bringing the seller to the buyer. Instead of looking through countless listings only to not find what you’re looking for; you create a listing containing the item you want and the sellers, merchants, and retailers offer you the product. Additionally, we offer a social media-esque platform to help you curate your perfect shopping list; allowing you to organize what you’re looking for in aesthetically pleasing categories and giving your posts more visibility. 
+
+## Pain Point 
+Just as users spend countless hours scrolling through various social media platforms. Online shoppers also spend a copious  amount of time scrolling through listings only to come away with absolutely nothing. To fix that, customers create the product listings because they know exactly what they want best.
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
