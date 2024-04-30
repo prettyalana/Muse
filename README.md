@@ -1,7 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="muse-shopping.com">
-    <img src="app/assets/images/Muse-2.png" alt="Muse" width="200"></a>
+    <img src="app/assets/images/Muse-2.png" alt="Muse" width="200">
   <br>
   Muse
   <br>
