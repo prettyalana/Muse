@@ -23,22 +23,20 @@ class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
 
-
   after_create :offer_message
 
   private
 
   def offer_message
-
-    offer_url = Rails.application.routes.url_helpers.offer_url(self, host: 'muse-shopping.com')
-
-    message = Message.new(
+    message = Message.create!(
       listing: listing,
       sender: seller,
       recipient: listing.buyer,
       body: "You have a new offer: #{offer_url}"
     )
+  end
 
-    message.save
+  def offer_url
+    Rails.application.routes.url_helpers.offer_url(self, host: 'muse-shopping.com')
   end
 end
