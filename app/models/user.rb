@@ -23,7 +23,9 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
-#
+
+### The extra lines/groupings are inconsistent.
+### Are you trying to group by similar relationships (i.e. listings, offers, messages)?
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
