@@ -54,10 +54,10 @@ Upon creating an account choose "seller".
 ## Version Control
 - Great job with issue tracking & linking issues to pull requests
 **Question about project boards? Are we asking folks to send us the link? This may not have been clear to them.** 
-- +1 Bonus for Code review process
+- good job adding code review process
 
 ## Code Hygiene
-- -0.5 Consistent indentation; however, spacing and extra lines could use some work
+- Consistent indentation; however, spacing and extra lines could use some work
 
 ## Frontend
 - landing page utilizes javascript for the color change feature; however, this may be unnecessary feature
