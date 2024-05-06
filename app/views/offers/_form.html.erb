@@ -14,6 +14,8 @@
   <div>
     <%= form.label :seller_id, style: "display: block" %>
     <%= collection_select(:offer, :seller_id, User.all, :id, :username) %>
+
+    <%# Remove this commented out code%>
     <%#= hidden_field(:seller, :seller_id) %>
   </div>
 

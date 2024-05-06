@@ -60,7 +60,6 @@ Upon creating an account choose "seller".
 - -0.5 Consistent indentation; however, spacing and extra lines could use some work
 
 ## Frontend
-- way too many stylesheets! Could use application style sheet
 - landing page utilizes javascript for the color change feature; however, this may be unnecessary feature
 - good use of rails helpers
 - alt tags are not very descriptive; however, they are used
