@@ -17,7 +17,7 @@ body {
 
 .left-content {
   background-size: cover;
-  width: 55%;
+  width: 50%;
   margin: 10px;
   border-radius: 10px;
   display: flex;
@@ -84,7 +84,7 @@ body {
 .first-last-container {
   display: flex;
   flex-direction: column;
-  width: 48.60%;
+  width: 50%;
   gap: 10px;
 }
 
