@@ -19,10 +19,11 @@
 #
 #  fk_rails_...  (seller_id => users.id)
 #
+
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
-
+## Extra lines/spacing inconsistent and negatively impacts readability.
 
   after_create :offer_message
 

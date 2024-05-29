@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "landing_page#show"
 
+  # Remove the unncessary spacing/blank lines in 4-7
 
 
 
