@@ -15,6 +15,7 @@ Just as users spend countless hours scrolling through various social media platf
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
+  <a href="#installation">Installation</a> • 
   <a href="#how-to-use">How To Use</a>
 </p>
 
@@ -26,6 +27,24 @@ Just as users spend countless hours scrolling through various social media platf
   - Muse offers a social media-esque platform with customizeable features coming soon.
 * Mark an item as purchased
   - If a buyer has already purchased an item, there's an option to mark the item as purchased.
+
+## Installation
+
+1. Clone the repository:
+* ```git clone https://github.com/yourusername/Muse.git)```
+  
+2. Install dependencies:
+* ```bundle install```
+  
+3. Set up the database:
+* ```rails db:create```
+* ```rails db:migrate```
+  
+4. Start the Rails server:
+* ```rails server, rails s, or bin/dev```
+
+5. Access the application in your web browser at
+* ```http://localhost:3000```
 
 ## How To Use
 
