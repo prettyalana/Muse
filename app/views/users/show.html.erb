@@ -1,4 +1,4 @@
-<h1><%= @user.username %>'s profile</h1>
+<h1 class="profile-header"><%= @user.username %>'s profile</h1>
 <div class="profile-info">
   <%= image_tag @user.avatar if @user.avatar.attached? %>
   <%= @user.bio %>,
@@ -14,7 +14,7 @@
   <% end %>
 </h1>
 
-<div class="card-container">
+<div class="card-container" style="padding-bottom: 6.25rem;">
   <%if @user.buyer? %>
     <% @user.listings.each do |listing| %>
       <%= render "listings/card", listing: listing %>
@@ -22,15 +22,7 @@
   <% else %>
     <% if @user.seller?%>
       <% @user.sent_offers.each do |offer|%>
-        <div class="card">
-          <h5 class="card-title">
-            <%= offer.seller.image %>
-            <%= offer.seller.username %></h5>
-          <%= image_tag offer.image, class: "card-img-top" %>
-          <div class="card-body">
-            <p class="card-text"><%= offer.description %></p>
-          </div>
-        </div>
+        <%= render "offers/card", offer: offer %>
       <% end %>
     <% end %>
   <% end %>

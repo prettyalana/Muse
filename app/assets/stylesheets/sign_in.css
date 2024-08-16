@@ -5,3 +5,8 @@
   align-items: center;
   height: 100vh;
 }
+
+.form-actions {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}

@@ -1,6 +1,9 @@
 body {
-  padding-bottom: 6.25rem;
   display: flex;
+}
+
+.profile-header {
+  margin-top: 3.125rem;
 }
 
 .profile-info {

@@ -2,11 +2,11 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  account_type           :string           default("buyer")
 #  address                :string
 #  bio                    :text
-#  email                  :string           default(""), not null
+#  email                  :citext           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  image                  :string
 #  location               :string
@@ -14,7 +14,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  username               :string
+#  username               :citext
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

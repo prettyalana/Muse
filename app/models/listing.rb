@@ -2,14 +2,14 @@
 #
 # Table name: listings
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  caption     :text
 #  image       :string
 #  purchased   :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  buyer_id    :integer          not null
-#  category_id :integer          not null
+#  buyer_id    :bigint           not null
+#  category_id :bigint           not null
 #
 # Indexes
 #
@@ -18,15 +18,20 @@
 #
 # Foreign Keys
 #
-#  buyer_id     (buyer_id => users.id)
-#  category_id  (category_id => categories.id)
+#  fk_rails_...  (buyer_id => users.id)
+#  fk_rails_...  (category_id => categories.id)
 #
 class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   belongs_to :category, class_name: "Category"
 
   has_many :messages, class_name: "Message"
-  has_many :offers, through: :messages
+  has_many :offers, class_name: "Offer"
+
+  def recent_conversations
+    latest_message_ids = Message.where(listing_id: id).select("MAX(id) as id").group("LEAST(sender_id, recipient_id)", "GREATEST(sender_id, recipient_id)").collect(&:id)
+    Message.where(id: latest_message_ids)
+  end
 
 
   validates :caption, presence: true
@@ -35,5 +40,4 @@ class Listing < ApplicationRecord
   scope :purchased_listings, -> { where(purchased: true) }
 
   scope :listing, -> { where(current_user: true)}
-  #enum purchased: { true: "purchased", false: "not_purchased" }
 end

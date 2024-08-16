@@ -2,15 +2,14 @@
 #
 # Table name: offers
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  description :text
 #  image       :string
 #  price       :decimal(, )
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  listing_id  :integer
-#  message_id  :integer
-#  seller_id   :integer          not null
+#  seller_id   :bigint           not null
 #
 # Indexes
 #
@@ -18,27 +17,28 @@
 #
 # Foreign Keys
 #
-#  seller_id  (seller_id => users.id)
+#  fk_rails_...  (seller_id => users.id)
 #
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
-  #reconsider this 
-  belongs_to :message
 
-  #after_update :marked_purchased
 
-  # add the counter offer and accepted boolean field to the offers
-  # enum status: { pending: "pending", countered: "countered", rejected: "rejected", accepted: "accepted"}
-  #
-  #private
-  #
-  #def marked_purchased
-   # if self.accepted
-    # self.listing.update(
-      # purchased: true
-    #)
-    #end
-  #end
+  after_create :offer_message
 
+  private
+
+  def offer_message
+
+    offer_url = Rails.application.routes.url_helpers.offer_url(self, host: 'muse-shopping.com')
+
+    message = Message.new(
+      listing: listing,
+      sender: seller,
+      recipient: listing.buyer,
+      body: "You have a new offer: #{offer_url}"
+    )
+
+    message.save
+  end
 end

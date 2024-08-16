@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_23_132857) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,19 +55,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
     t.boolean "purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "buyer_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "category_id", null: false
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
     t.index ["category_id"], name: "index_listings_on_category_id"
   end
 
   create_table "messages", force: :cascade do |t|
+    t.integer "listing_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sender_id", null: false
-    t.integer "recipient_id", null: false
-    t.integer "listing_id"
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id", null: false
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -73,20 +77,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_201210) do
     t.text "description"
     t.integer "listing_id"
     t.decimal "price"
-    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "seller_id", null: false
+    t.bigint "seller_id", null: false
     t.index ["seller_id"], name: "index_offers_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.citext "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
+    t.citext "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"

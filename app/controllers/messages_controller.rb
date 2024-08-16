@@ -11,7 +11,9 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = Message.new()
+    @message.recipient_id = params[:recipient_id]
+    @message.listing_id = params[:listing_id]
   end
 
   # GET /messages/1/edit
@@ -22,7 +24,6 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
-
     respond_to do |format|
       if @message.save
         format.html { redirect_to message_url(@message), notice: "Message was successfully created." }

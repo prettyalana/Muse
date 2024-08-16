@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+abbr[title="required"] {
+  display: none;
+}
+
 body {
   background: rgb(252, 241, 243);
 }
@@ -63,7 +67,7 @@ ul {
 }
 
 @media screen and (max-width: 545px) {
-  p {
+  .nav-text {
     display: none;
   }
 }
