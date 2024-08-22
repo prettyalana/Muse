@@ -28,10 +28,20 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
+
+  OTP_LENGTH = 6
+
+  def send_confirmation_instructions
+    token = SecureRandom.random_number(10**OTP_LENGTH).to_s.rjust(OTP_LENGTH, 0)
+    self.confirmation_token = token
+    self.confirmation_sent_at = Time.now.utc
+    save(validate: false)
+    UserMailer.confirmation_instructions(self, self.confirmation_token).deliver_now
+  end
 
   has_many :listings, class_name: "Listing", foreign_key: :buyer_id
-  has_many :purchased_listings, -> { where(purchased: "purchased")}, foreign_key: :buyer_id, class_name: "Listing"
+  has_many :purchased_listings, -> { where(purchased: "purchased") }, foreign_key: :buyer_id, class_name: "Listing"
 
   has_many :sent_offers, foreign_key: :seller_id, class_name: "Offer", dependent: :destroy
   has_many :accepted_counter_offers, -> { where(status: "accepted") }, foreign_key: :sender_id, class_name: "Offer"
