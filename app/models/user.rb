@@ -11,6 +11,16 @@
 #  image                  :string
 #  location               :string
 #  name                   :string
+#  otp_auth_secret        :string
+#  otp_challenge_expires  :datetime
+#  otp_enabled            :boolean          default(FALSE), not null
+#  otp_enabled_on         :datetime
+#  otp_failed_attempts    :integer          default(0), not null
+#  otp_mandatory          :boolean          default(FALSE), not null
+#  otp_persistence_seed   :string
+#  otp_recovery_counter   :integer          default(0), not null
+#  otp_recovery_secret    :string
+#  otp_session_challenge  :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -20,25 +30,17 @@
 #
 # Indexes
 #
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_username              (username) UNIQUE
+#  index_users_on_email                  (email) UNIQUE
+#  index_users_on_otp_challenge_expires  (otp_challenge_expires)
+#  index_users_on_otp_session_challenge  (otp_session_challenge) UNIQUE
+#  index_users_on_reset_password_token   (reset_password_token) UNIQUE
+#  index_users_on_username               (username) UNIQUE
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
-
-  OTP_LENGTH = 6
-
-  def send_confirmation_instructions
-    token = SecureRandom.random_number(10**OTP_LENGTH).to_s.rjust(OTP_LENGTH, 0)
-    self.confirmation_token = token
-    self.confirmation_sent_at = Time.now.utc
-    save(validate: false)
-    UserMailer.confirmation_instructions(self, self.confirmation_token).deliver_now
-  end
+  devise :otp_authenticatable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   has_many :listings, class_name: "Listing", foreign_key: :buyer_id
   has_many :purchased_listings, -> { where(purchased: "purchased") }, foreign_key: :buyer_id, class_name: "Listing"
