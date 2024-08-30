@@ -6,11 +6,16 @@ body {
   font-family: 'Alumni Sans Pinstripe', sans-serif;
 }
 
+.home-video {
+  width: 100%;
+}
+
 .latest-listings {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: 3.125rem;
+  margin: 50px;
+  gap: 50px;
 }
 
 .home-sub-header {
