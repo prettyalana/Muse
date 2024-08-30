@@ -104,8 +104,14 @@
 }
 
 .caption {
-  font-size: 1em;
+  font-size: 2em;
   width: 100%;
+}
+
+@media (max-width: 26.875rem) {
+  .caption {
+    font-size: 1em;
+  }
 }
 
 .sign-in,
