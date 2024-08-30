@@ -19,8 +19,8 @@
   height: 80vh;
 }
 
-.demo-video {
-  margin-top: 50px;
+.demo-container {
+  margin-top: 3.125rem;
 }
 
 .footer {
@@ -104,11 +104,12 @@
 }
 
 .caption {
-  font-size: 2em;
+  font-size: 2rem;
   width: 100%;
+  white-space: nowrap;
 }
 
-@media (max-width: 26.875rem) {
+@media (max-width: 24.375rem) {
   .caption {
     font-size: 1em;
   }
