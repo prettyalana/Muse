@@ -1,5 +1,7 @@
 .messages-container {
   margin-top: 3.125rem;
+  width: 80%;
+  padding-bottom: 6.25rem;
 }
 
 .messages-header {

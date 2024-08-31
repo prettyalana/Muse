@@ -1,44 +1,21 @@
-<div class="logo">
-  <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
-</div>
+<body class="page">
+  <div class="logo">
+    <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
+  </div>
 
-<div class="title">
-  <h2> Find what you're looking for today</h2>
-</div>
+  <div class="title">
+    <h2> Find what you're looking for today</h2>
+  </div>
 
-<div class="home-video">
-  <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, autobuffer: true, playsinline: :playsinline, width: "100%")%>
-</div>
+  <div class="home-video">
+    <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, autobuffer: true, playsinline: :playsinline, width: "100%")%>
+  </div>
 
-<div class="latest-listings" style="padding-bottom: 6.25rem;">
-  <h1 class="home-sub-header">Discover the most recent listings</h1>
-  <% @listings.each do |listing|%>
-    <div class="card">
-      <h5 class="card-title">
-    <div class="left-side">
-      <% if listing.buyer.image != nil%>
-        <%= image_tag listing.buyer.image, class:"profile-picture" %>
-      <% end %>
-      <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
-    </div>
-    <% if listing.buyer == current_user %>
-      <div class="right-side">
-        <%= link_to edit_listing_path(listing) do %>
-          <i class="fa-solid fa-ellipsis"></i>
-        <% end %>
-      </div>
+  <div class="latest-listings" style="padding-bottom: 6.25rem;">
+    <h1 class="home-sub-header">Discover the most recent listings</h1>
+    <% @listings.each do |listing|%>
+      <%= render 'listings/card', listing: listing %>
     <% end %>
-  </h5>
-      <%= image_tag listing.image, class: "card-img-top" %>
-      <div class="card-body">
-        <p class="card-text"><%= listing.caption %></p>
+  </div>
 
-        <%if current_user.seller?%>
-          <%= link_to new_message_path(recipient_id: listing.buyer, listing_id: listing.id) do %>
-            <i class="fa-regular fa-message"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+</body>
