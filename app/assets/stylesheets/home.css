@@ -2,8 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap');
 
-body {
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
+#home-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-video {
@@ -13,7 +16,7 @@ body {
 .latest-listings {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   margin: 50px;
   gap: 50px;
 }

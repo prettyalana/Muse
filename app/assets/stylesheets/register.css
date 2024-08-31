@@ -1,18 +1,18 @@
-body {
+#registration-body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .modal {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background: white;
-  width: 70%;
-  height: 100%;
   font-weight: 900;
   border-radius: 10px;
-  margin-top: 3.125rem;
 }
 
 .left-content {
@@ -24,6 +24,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 150px;
+  background: white;
 }
 
 .left-info {
@@ -61,8 +62,9 @@ body {
 .right-info {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   margin: 35px;
+  background: pink;
 }
 
 .starting-prompt {

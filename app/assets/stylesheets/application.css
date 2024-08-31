@@ -14,11 +14,19 @@
  *= require_self
  */
 
- * {
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
 }
 
 abbr[title="required"] {
@@ -55,7 +63,7 @@ ul {
 .navbar a {
   padding: 20px 30px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 
 .navbar a:hover {
@@ -66,7 +74,14 @@ ul {
   color: white;
 }
 
-@media screen and (max-width: 545px) {
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 530px) {
   .nav-text {
     display: none;
   }
