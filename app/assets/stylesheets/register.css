@@ -1,15 +1,13 @@
-#registration-body {
+.wrapper {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 .modal {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 850px;
+  margin: auto;
   background: white;
   font-weight: 900;
   border-radius: 10px;
@@ -38,6 +36,7 @@
   opacity: 0.75;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  height: 100%;
 }
 
 .left-header {
@@ -56,7 +55,6 @@
   display: flex;
   justify-content: center;
   margin: 16px;
-  
 }
 
 .right-info {
@@ -64,7 +62,6 @@
   flex-direction: column;
   width: 50%;
   margin: 35px;
-  background: pink;
 }
 
 .starting-prompt {
@@ -77,26 +74,6 @@
   font-size: 20pt;
 }
 
-
-.first-last-container {
-  display: flex;
-  gap: 10px;
-}
-
-.first-last-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 10px;
-}
-
-
-.user-info-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .sign-up-button {
   width: 100%;
 }
@@ -104,4 +81,13 @@
 .button-container {
   display: flex;
   justify-content: center;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+}
+
+.sign-up-btn {
+  margin-right: 0.5rem;
 }
