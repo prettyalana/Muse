@@ -14,7 +14,7 @@ task({ :sample_data => :environment }) do
 
   12.times do
     username = Faker::Name.first_name
-    name = Faker::Name.name.capitalize
+    name = Faker::Name.name.titleize
     address = Faker::Address.full_address
     bio = Faker::Quote.matz
     location = Faker::Address.city
