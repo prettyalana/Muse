@@ -1,24 +1,19 @@
 .edit-header {
-  margin-bottom: 1.25rem;
-}
-
-.edit-profile-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
+  margin: 50px 0 20px;
 }
 
 .form-inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: .5rem;
+  width: 100%;
 }
 
 .account-actions {
-  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

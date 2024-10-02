@@ -1,30 +1,31 @@
-<div class="modal">
-  <div class="left-content">
-    <div class="left-info">
-      <div class="logo">
-        <%= image_tag("/assets/Muse-2.png", size: "200x200", alt: "Muse")%>
+<body id="registration-body">
+  <div class="wrapper">
+    <div class="modal">
+    <div class="left-content">
+      <div class="left-info">
+        <div class="logo">
+          <%= image_tag("/assets/Muse-2.png", size: "200x200", alt: "Muse")%>
+        </div>
+        <h5>Welcome to Muse</h5>
+        <h6>An app made for the customer by the customer</h6>
       </div>
-      <h5>Welcome to Muse</h5>
-      <h5>An app made for the customer by the customer</h5>
     </div>
-  </div>
-  <div class="right-info">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-      <div class="starting-prompt">
-        <div class="right-header">Get started today!</div>
-        <div class="returning-users">Already a member? <%= render "devise/shared/links" %></div>
-      </div>
-      <div class="sign-up">
-        <div class="signup-form-inputs">
-          <%= f.file_field :avatar,
+    <div class="right-info">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="starting-prompt">
+          <div class="right-header">Get started today!</div>
+        </div>
+        <div class="sign-up">
+          <div class="signup-form-inputs">
+            <%= f.file_field :avatar,
                 required: false
                 %>
-          <%= f.input :bio,
+            <%= f.input :bio,
                 required: false,
                 autofocus: true
                 %>
-          <%= f.input :email,
+            <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
@@ -32,36 +33,41 @@
                 required: true,
                 class: "nameBox"
                 %>
-          <%= f.input :username,
+            <%= f.input :username,
                 required: true,
                 autofocus: true,
                 class: "usernameBox"
                 %>
-          <%= f.input :address,
+            <%= f.input :address,
                 required: true,
                 autofocus: true
                 %>
-          <%= f.input :location,
+            <%= f.input :location,
                 required: true,
                 autofocus: true
                 %>
-          <%= label :account_type, "Choose Your Account Type" %>
-          <%= f.radio_button :account_type, "buyer"%>
-          <%= label :account_type, "Buyer" %>
-          <%= f.radio_button :account_type, "seller"%>
-          <%= label :account_type, "Seller" %>
-          <%= f.input :password,
+            <%= label :account_type, "Choose Your Account Type" %>
+            <%= f.radio_button :account_type, "buyer"%>
+            <%= label :account_type, "Buyer" %>
+            <%= f.radio_button :account_type, "seller"%>
+            <%= label :account_type, "Seller" %>
+            <%= f.input :password,
                 class: "passwordBox",
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
+            <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-        </div>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "boxBtn" %>
-        </div>
-      <% end %>
-</div>
+          <div class="form-actions">
+            <div class="sign-up-btn">
+              <%= f.button :submit, "Sign up", class: "boxBtn" %>
+            </div>
+            <div class="returning-users">Already a member? <%= render "devise/shared/links" %></div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</body>

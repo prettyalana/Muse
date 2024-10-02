@@ -1,29 +1,34 @@
-<h1 class="profile-header"><%= @user.username %>'s profile</h1>
-<div class="profile-info">
-  <%= image_tag @user.avatar if @user.avatar.attached? %>
-  <%= @user.bio %>,
-  <%= @user.name%>,
-  <%= @user.location %>
-</div>
+<body class="page">
+  <h1 class="profile-header"><%= @user.username %>'s profile</h1>
+  <div class="profile-picture-container">
+    <%= image_tag(@user.image, class: "profile-picture") if @user.image.present? %>
+  </div>
+  <div class="profile-info">
+    <%= @user.bio %>,
+    <%= @user.name%>,
+    <%= @user.location %>
+  </div>
 
-<h1 class="page-header">
-  <%if @user.buyer? %>
-    <%= @user.username %>'s listings
-  <% else %>
-    <%= @user.username%>'s offers
-  <% end %>
-</h1>
-
-<div class="card-container" style="padding-bottom: 6.25rem;">
-  <%if @user.buyer? %>
-    <% @user.listings.each do |listing| %>
-      <%= render "listings/card", listing: listing %>
+  <h2 class="page-header">
+    <%if @user.buyer? %>
+      <%= @user.username %>'s listings
+    <% else %>
+      <%= @user.username%>'s offers
     <% end %>
-  <% else %>
-    <% if @user.seller?%>
-      <% @user.sent_offers.each do |offer|%>
-        <%= render "offers/card", offer: offer %>
+  </h2>
+
+  <div class="card-container">
+    <%if @user.buyer? %>
+      <% @user.listings.each do |listing| %>
+        <%= render "listings/card", listing: listing %>
+      <% end %>
+    <% else %>
+      <% if @user.seller?%>
+        <% @user.sent_offers.each do |offer|%>
+          <%= render "offers/card", offer: offer %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+
+</body>
