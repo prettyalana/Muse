@@ -2,8 +2,8 @@
 <div class="card">
   <h5 class="card-title">
     <div class="left-side">
-      <% if listing.buyer.image != nil%>
-        <%= image_tag listing.buyer.image, class:"profile-picture" %>
+      <% if listing.buyer.avatar != nil%>
+        <%= image_tag listing.buyer.avatar, class:"profile-picture" %>
       <% end %>
       <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
     </div>
