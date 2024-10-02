@@ -44,7 +44,7 @@ task({ :sample_data => :environment }) do
   p "Created #{Category.all.count} categories."
 
 
-  image_ids = [8, 20, 21, 23, 24, 26, 39, 48, 76, 96, 157, 250, 403]
+  image_ids = [8, 20, 21, 23, 24, 26, 39, 48, 76, 96, 157, 250, 403, 464, 486, 527]
 
   User.where(account_type: "buyer").each do |user|
     rand(15).times do
