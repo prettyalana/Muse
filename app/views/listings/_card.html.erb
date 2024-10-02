@@ -4,6 +4,8 @@
     <div class="left-side">
       <% if listing.buyer&.avatar.present? %>
         <%= image_tag listing.buyer.avatar, class:"profile-picture" %>
+      <% else %>
+        <%= image_tag "Muse.png"%>
       <% end %>
       <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
     </div>
