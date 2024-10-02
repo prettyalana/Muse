@@ -5,7 +5,7 @@
       <% if offer.seller.present? && offer.seller.avatar != nil%>
         <%= image_tag offer.seller.avatar, class:"profile-picture" %>
       <%else%>
-        <%= image_tag "Muse.png"%>
+        <%= image_tag "Muse.png", class:"profile-picture" %>
       <% end %>
       <%= link_to offer.seller.username, user_path(offer.seller.username) %>
     </div>
