@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  listing_id  :integer
+#  message_id  :integer
 #  seller_id   :bigint           not null
 #
 # Indexes
