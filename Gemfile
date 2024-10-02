@@ -5,6 +5,8 @@ ruby "3.2.1"
 
 gem "simple_form"
 
+gem 'image_processing', '~> 1.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
@@ -112,3 +114,5 @@ end
 
 gem "ransack"
 gem 'aws-sdk-s3', require: false
+
+gem "mini_magick", "~> 4.13"
