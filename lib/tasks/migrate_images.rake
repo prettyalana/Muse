@@ -23,6 +23,9 @@ namespace :migrate do
             )
           end
 
+          listing.update(image: new_s3_url)
+
+
           Rails.logger.info "Migrated image for listing ##{listing.id} to AWS S3"
         rescue => e
           Rails.logger.error "Failed to migrate image for listing ##{listing.id}: #{e.message}"

@@ -7,4 +7,5 @@
 <div>
   <%= link_to "Show this listing", @listing %> |
   <%= link_to "Back to listings", user_path(current_user.username) %>
+  <%= button_to "Destroy this listing", @listing, method: :delete %>
 </div>
