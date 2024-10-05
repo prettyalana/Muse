@@ -17,7 +17,9 @@
       </div>
     <% end %>
   </h5>
-  <%= image_tag offer.image, class: "card-img-top" %>
+  <% if offer.image.attached? %>
+      <%= image_tag offer.image, class: "card-img-top" %>
+  <% end %>
   <div class="card-body">
     <p class="card-text">
       <%= offer.description %>
