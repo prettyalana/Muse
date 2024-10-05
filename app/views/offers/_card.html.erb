@@ -2,7 +2,7 @@
 <div class="card">
   <h5 class="card-title">
     <div class="left-side">
-      <% if offer.seller.present? && offer.seller.avatar != nil%>
+      <% if offer.seller && offer.seller.avatar.attached? %>
         <%= image_tag offer.seller.avatar, class:"profile-picture" %>
       <%else%>
         <%= image_tag "Muse.png", class:"profile-picture" %>

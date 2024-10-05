@@ -56,7 +56,7 @@ task({ :sample_data => :environment }) do
         purchased: [true, false].sample
       )
 
-      l.image.attach(io: URI.open(listing_image), filename: "listing_image_#{l.id}.png")
+      l.image.attach(io: URI.open("https://picsum.photos/id/8/800/600"), filename: "listing_image_#{l.id}.png")
     end
   end
 
