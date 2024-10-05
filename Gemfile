@@ -116,3 +116,4 @@ gem "ransack"
 gem 'aws-sdk-s3', require: false
 
 gem "mini_magick", "~> 4.13"
+gem 'mini_mime', '~> 1.1', '>= 1.1.2'

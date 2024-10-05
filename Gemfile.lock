@@ -458,6 +458,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mini_magick (~> 4.13)
+  mini_mime (~> 1.1, >= 1.1.2)
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
