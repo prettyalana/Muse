@@ -48,12 +48,15 @@ task({ :sample_data => :environment }) do
 
   User.where(account_type: "buyer").each do |user|
     rand(15).times do
-      user.listings.create(
+      listing_image = "https://picsum.photos/id/#{image_ids.sample}/800/600"
+     l = user.listings.create(
         caption: Faker::Lorem.sentence,
-        image: "https://picsum.photos/id/#{image_ids.sample}/800/600",
+        image: listing_image,
         category: Category.all.sample,
         purchased: [true, false].sample
       )
+
+      l.image.attach(io: URI.open("https://picsum.photos/id/8/800/600"), filename: "listing_image_#{l.id}.png")
     end
   end
 

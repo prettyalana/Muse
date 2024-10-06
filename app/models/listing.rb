@@ -28,6 +28,8 @@ class Listing < ApplicationRecord
   has_many :messages, class_name: "Message"
   has_many :offers, class_name: "Offer"
 
+  has_one_attached :image
+
   def recent_conversations
     latest_message_ids = Message.where(listing_id: id).select("MAX(id) as id").group("LEAST(sender_id, recipient_id)", "GREATEST(sender_id, recipient_id)").collect(&:id)
     Message.where(id: latest_message_ids)
