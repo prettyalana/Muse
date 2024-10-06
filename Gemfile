@@ -114,6 +114,7 @@ end
 
 gem "ransack"
 gem 'aws-sdk-s3', require: false
+gem 'open-uri', '~> 0.3.0'
 
 gem "mini_magick", "~> 4.13"
 gem 'mini_mime', '~> 1.1', '>= 1.1.2'
