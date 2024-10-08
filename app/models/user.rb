@@ -8,7 +8,6 @@
 #  bio                    :text
 #  email                  :citext           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  image                  :string
 #  location               :string
 #  name                   :string
 #  remember_created_at    :datetime

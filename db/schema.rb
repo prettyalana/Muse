@@ -98,19 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_02_163621) do
     t.text "bio"
     t.string "location"
     t.string "account_type", default: "buyer"
-    t.string "otp_auth_secret"
-    t.string "otp_recovery_secret"
-    t.boolean "otp_enabled", default: false, null: false
-    t.boolean "otp_mandatory", default: false, null: false
-    t.datetime "otp_enabled_on"
-    t.integer "otp_failed_attempts", default: 0, null: false
-    t.integer "otp_recovery_counter", default: 0, null: false
-    t.string "otp_persistence_seed"
-    t.string "otp_session_challenge"
-    t.datetime "otp_challenge_expires"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["otp_challenge_expires"], name: "index_users_on_otp_challenge_expires"
-    t.index ["otp_session_challenge"], name: "index_users_on_otp_session_challenge", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
