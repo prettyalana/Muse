@@ -38,9 +38,7 @@ class User < ApplicationRecord
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message", dependent: :destroy
   has_many :replied_messages, foreign_key: :recipient_id, class_name: "Message"
 
-  has_one_attached :avatar do |attach|
-    attach.variant :thumb, resize_to_limit: [100, 100]
-  end
+  has_one_attached :avatar
 
   validates :username, presence: true, uniqueness: true
 
