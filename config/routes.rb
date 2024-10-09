@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
 
-  resources :messages
   resources :offers
   resources :categories
-  resources :listings
+  resources :listings do
+    resources :messages, only: [:new, :create]
+  end
+  resources :messages
 
   get "/home" => "home#show"
   get "/:username" => "users#show", as: :user

@@ -11,12 +11,14 @@
         </div>
       <% end %>
       <div class="new-message">
-        <% listing = Listing.find(listing_id) %>
-        <% if current_user.seller? %>
-          <% recipient_id = listing.buyer.id %>
-        <% end %>
-        <%= link_to "New message", new_message_path(recipient_id: recipient_id, listing_id: listing_id) %>
-      </div>
+  <% listing = Listing.find(listing_id) %>
+  <% if current_user.seller? %>
+    <% recipient_id = listing.buyer.id %>
+  <% end %>
+  <% Rails.logger.debug "Link to New Message: recipient_id=#{recipient_id}, listing_id=#{listing.id}" %>
+  <%= link_to "New message", new_message_path(recipient_id: recipient_id, listing_id: listing.id) %>
+</div>
+
     <% end %>
   </div>
 </div>
