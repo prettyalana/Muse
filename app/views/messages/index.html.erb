@@ -1,26 +1,23 @@
 <body class="page">
   <div class="messages-container">
-  <h1 class="messages-header">Messages</h1>
+    <h1 class="messages-header">Messages</h1>
 
-  <div id="messages">
-    <% @messages.each do |listing_id, messages| %>
-      <h4><%= listing_id %></h4>
-      <% messages.each do |message| %>
-        <div class="message">
-          <%= render message %>
+    <div id="messages">
+      <% @messages.each do |listing_id, messages| %>
+        <% listing = Listing.find(listing_id) %>
+        <h4><%= listing_id %></h4>
+        <% messages.each do |message| %>
+          <div class="message">
+            <%= render message %>
+          </div>
+        <% end %>
+        <div class="new-message">
+          <% if current_user.seller? %>
+            <% recipient_id = listing.buyer.id %>
+          <% end %>
+          <%= link_to "New message", new_listing_message_path(listing_id: listing.id, recipient_id: recipient_id) %>
         </div>
       <% end %>
-      <div class="new-message">
-  <% listing = Listing.find(listing_id) %>
-  <% if current_user.seller? %>
-    <% recipient_id = listing.buyer.id %>
-  <% end %>
-  <% Rails.logger.debug "Link to New Message: recipient_id=#{recipient_id}, listing_id=#{listing.id}" %>
-  <%= link_to "New message", new_message_path(recipient_id: recipient_id, listing_id: listing.id) %>
-</div>
-
-    <% end %>
+    </div>
   </div>
-</div>
-
 </body>

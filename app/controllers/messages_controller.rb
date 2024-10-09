@@ -8,11 +8,11 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    Rails.logger.debug "New message params: recipient_id=#{params[:recipient_id]}, listing_id=#{params[:listing_id]}"
-    @message = Message.new(recipient_id: params[:recipient_id], listing_id: params[:listing_id])
-    Rails.logger.debug "Initialized message: recipient_id=#{@message.recipient_id}, listing_id=#{@message.listing_id}"
+    @message = Message.new(
+      recipient_id: params[:recipient_id],
+      listing_id: params[:listing_id],
+    )
   end
-
 
   # POST /messages or /messages.json
   def create
@@ -59,13 +59,14 @@ class MessagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def message_params
-      params.require(:message).permit( :recipient_id, :listing_id, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def message_params
+    params.require(:message).permit(:recipient_id, :listing_id, :body)
+  end
 end

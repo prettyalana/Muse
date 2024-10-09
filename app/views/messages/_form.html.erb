@@ -12,7 +12,7 @@
 
   <div>
     <% if current_user.seller? %>
-      <%= form.hidden_field :recipient_id, value: "499" %>
+      <%= form.hidden_field :recipient_id %>
     <% else %>
       <%= form.label :recipient_id, "Recipient" %>
       <%= form.collection_select :recipient_id, User.seller, :id, :username, { selected: @message.recipient_id } %>
@@ -20,7 +20,7 @@
   </div>
 
   <div>
-    <%= form.hidden_field :listing_id, value: "1152" %>
+    <%= form.hidden_field :listing_id %>
   </div>
 
   <div>
