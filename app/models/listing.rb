@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  caption     :text
-#  image       :string
 #  purchased   :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -37,7 +36,6 @@ class Listing < ApplicationRecord
 
 
   validates :caption, presence: true
-  validates :image, presence: true
 
   scope :purchased_listings, -> { where(purchased: true) }
 
