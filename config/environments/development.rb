@@ -19,6 +19,19 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Enable live compilation of assets
+  config.assets.debug = true
+
+  # Enable auto reloading of changed files
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Disable Rails's static asset server (Apache or nginx will already do this)
+  config.public_file_server.enabled = false
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
