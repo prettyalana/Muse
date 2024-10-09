@@ -18,7 +18,9 @@
       </div>
     <% end %>
   </h5>
-  <%= image_tag listing.image, class: "card-img-top" %>
+  <% if listing.image.attached? %>
+    <%= image_tag listing.image, class: "card-img-top" %>
+  <% end %>
   <div class="card-body">
     <p class="card-text">
       <%= listing.caption %>
@@ -33,8 +35,8 @@
       <% end %>
     <% end %>
 
-    <%if current_user.seller?%>
-      <%= link_to new_message_path do %>
+    <% if current_user.seller? %>
+      <%= link_to new_listing_message_path(listing_id: listing.id, recipient_id: listing.buyer.id) do %>
         <i class="fa-regular fa-message"></i>
       <% end %>
     <% end %>

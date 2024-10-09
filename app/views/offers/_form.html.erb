@@ -14,12 +14,11 @@
   <div>
     <%= form.label :seller_id, style: "display: block" %>
     <%= collection_select(:offer, :seller_id, User.all, :id, :username) %>
-    <%#= hidden_field(:seller, :seller_id) %>
   </div>
 
   <div>
     <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div>

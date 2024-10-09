@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  caption     :text
-#  image       :string
 #  purchased   :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -28,6 +27,8 @@ class Listing < ApplicationRecord
   has_many :messages, class_name: "Message"
   has_many :offers, class_name: "Offer"
 
+  has_one_attached :image
+
   def recent_conversations
     latest_message_ids = Message.where(listing_id: id).select("MAX(id) as id").group("LEAST(sender_id, recipient_id)", "GREATEST(sender_id, recipient_id)").collect(&:id)
     Message.where(id: latest_message_ids)
@@ -35,7 +36,6 @@ class Listing < ApplicationRecord
 
 
   validates :caption, presence: true
-  validates :image, presence: true
 
   scope :purchased_listings, -> { where(purchased: true) }
 

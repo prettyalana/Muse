@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
-#  image       :string
 #  price       :decimal(, )
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -23,6 +22,8 @@
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing
+
+  has_one_attached :image
 
 
   after_create :offer_message
