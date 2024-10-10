@@ -12,8 +12,7 @@
   <% end %>
 
   <div>
-    <%= form.label :seller_id, style: "display: block" %>
-    <%= collection_select(:offer, :seller_id, User.all, :id, :username) %>
+    <%= form.hidden_field :seller_id, value: current_user.id %>
   </div>
 
   <div>
