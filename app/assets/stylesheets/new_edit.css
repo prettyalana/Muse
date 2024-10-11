@@ -1,6 +1,7 @@
 .new-listing,
 .new-message-container,
-.edit-listing
+.edit-listing,
+.edit-offer
 {
   display: flex;
   flex-direction: column;
