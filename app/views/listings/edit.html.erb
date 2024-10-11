@@ -1,11 +1,12 @@
-<h1>Editing listing</h1>
+<div class="edit-listing">
+  <h1>Editing listing</h1>
 
-<%= render "form", listing: @listing %>
+  <%= render "form", listing: @listing %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this listing", @listing %> |
-  <%= link_to "Back to listings", user_path(current_user.username) %>
-  <%= button_to "Destroy this listing", @listing, method: :delete %>
+  <div>
+    <%= link_to "Back to listings", user_path(current_user.username) %>
+    <%= button_to "Destroy this listing", @listing, method: :delete %>
+  </div>
 </div>

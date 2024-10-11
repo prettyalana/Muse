@@ -1,4 +1,7 @@
-.new-listing {
+.new-listing,
+.new-message-container,
+.edit-listing
+{
   display: flex;
   flex-direction: column;
   justify-content: center;

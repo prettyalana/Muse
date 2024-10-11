@@ -8,10 +8,9 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new(
-      recipient_id: params[:recipient_id],
-      listing_id: params[:listing_id],
-    )
+    @message = Message.new
+    @message.recipient_id = params[:recipient_id]
+    @message.listing_id = params[:listing_id]
   end
 
   # POST /messages or /messages.json
@@ -25,7 +24,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
+        format.html { redirect_to messages_path, notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
         Rails.logger.debug "Message errors: #{@message.errors.full_messages}"
@@ -67,6 +66,6 @@ class MessagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def message_params
-    params.require(:message).permit(:recipient_id, :listing_id, :body)
+    params.require(:message).permit(:sender_id, :recipient_id, :listing_id, :body)
   end
 end
