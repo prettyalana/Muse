@@ -25,7 +25,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to offer_url(@offer), notice: "Offer was successfully created." }
+        format.html { redirect_to user_path(username: current_user.username), notice: "Offer was successfully created." }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        format.html { redirect_to offer_url(@offer), notice: "Offer was successfully updated." }
+        format.html { redirect_to user_path(username: current_user.username), notice: "Offer was successfully updated." }
         format.json { render :show, status: :ok, location: @offer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class OffersController < ApplicationController
     @offer.destroy
 
     respond_to do |format|
-      format.html { redirect_to offers_url, notice: "Offer was successfully destroyed." }
+      format.html { redirect_to user_path(username: current_user.username), notice: "Offer was successfully destroyed." }
       format.json { head :no_content }
     end
   end
