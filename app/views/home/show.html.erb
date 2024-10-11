@@ -11,8 +11,8 @@
     <%= video_tag("/assets/home_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, autobuffer: true, playsinline: :playsinline, width: "100%")%>
   </div>
 
+  <h1 class="home-sub-header">Discover the most recent listings</h1>
   <div class="latest-listings">
-    <h1 class="home-sub-header">Discover the most recent listings</h1>
     <% @listings.each do |listing|%>
       <%= render 'listings/card', listing: listing %>
     <% end %>

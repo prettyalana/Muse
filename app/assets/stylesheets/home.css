@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
 #home-body {
   display: flex;
   flex-direction: column;
@@ -13,12 +20,34 @@
   width: 100%;
 }
 
+.home-sub-header {
+  margin-top: 20px;
+}
+
 .latest-listings {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 50px;
   gap: 50px;
+}
+
+@media (min-width: 700px) {
+  .latest-listings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    width: 95%;
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+
+  .card {
+    padding: 20px; 
+    min-height: 200px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+  }
 }
 
 .home-sub-header {
