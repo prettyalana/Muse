@@ -23,12 +23,12 @@
 
   <div class="card-container">
     <%if @user.buyer? %>
-      <% @user.listings.each do |listing| %>
+      <% @user.listings.order(created_at: :desc).each do |listing| %>
         <%= render "listings/card", listing: listing %>
       <% end %>
     <% else %>
       <% if @user.seller?%>
-        <% @user.sent_offers.each do |offer|%>
+        <% @user.sent_offers.order(created_at: :desc).each do |offer|%>
           <%= render "offers/card", offer: offer %>
         <% end %>
       <% end %>
