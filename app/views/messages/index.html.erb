@@ -4,17 +4,22 @@
 
     <div id="messages">
       <% @messages.each do |listing_id, messages| %>
-        <h4><%= listing_id %></h4>
+        <% listing = Listing.find_by(id: listing_id) %>
+        <h4><%= listing ? listing.caption : "Listing not available" %></h4>
+        
         <% messages.each do |message| %>
           <div class="message">
             <%= render message %>
           </div>
         <% end %>
+
         <div class="new-message">
-          <% if current_user.seller? %>
+          <% if listing && current_user.seller? %>
             <% recipient_id = listing.buyer.id %>
+            <%= link_to "New message", new_listing_message_path(listing_id: listing.id, recipient_id: recipient_id) %>
+          <% elsif !listing %>
+            <p>Cannot send a new message, as the listing has been deleted.</p>
           <% end %>
-          <%= link_to "New message", new_listing_message_path(listing_id: listing_id, recipient_id: recipient_id) %>
         </div>
       <% end %>
     </div>

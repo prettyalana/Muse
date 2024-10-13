@@ -3,9 +3,9 @@
   <h5 class="card-title">
     <div class="left-side">
       <% if offer.seller && offer.seller.avatar.attached? %>
-        <%= image_tag offer.seller.avatar, class:"profile-picture" %>
-      <%else%>
-        <%= image_tag "Muse.png", class:"profile-picture" %>
+        <%= image_tag offer.seller.avatar, class: "profile-picture" %>
+      <% else %>
+        <%= image_tag "Muse.png", class: "profile-picture" %>
       <% end %>
       <%= link_to offer.seller.username, user_path(offer.seller.username) %>
     </div>
@@ -18,11 +18,18 @@
     <% end %>
   </h5>
   <% if offer.image.attached? %>
+    <div class="card-img-container">
       <%= image_tag offer.image, class: "card-img-top" %>
+    </div>
   <% end %>
   <div class="card-body">
     <p class="card-text">
       <%= offer.description %>
     </p>
+    <% if current_user.seller? %>
+      <%= link_to new_listing_message_path(listing_id: offer.id, recipient_id: offer.seller.id) do %>
+        <i class="fa-regular fa-message"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>
