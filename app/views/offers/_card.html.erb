@@ -26,10 +26,5 @@
     <p class="card-text">
       <%= offer.description %>
     </p>
-    <% if current_user.seller? %>
-      <%= link_to new_listing_message_path(listing_id: offer.id, recipient_id: offer.seller.id) do %>
-        <i class="fa-regular fa-message"></i>
-      <% end %>
-    <% end %>
   </div>
 </div>
