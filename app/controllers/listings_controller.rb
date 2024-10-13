@@ -40,7 +40,7 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to listing_url(@listing), notice: "Listing was successfully updated." }
+        format.html { redirect_to user_path(username: current_user.username), notice: "Listing was successfully updated." }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit, status: :unprocessable_entity }
