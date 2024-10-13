@@ -3,36 +3,35 @@
   <div class="profile-picture-container">
     <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar, class: "avatar-picture" %>
-    <%else%>
+    <% else %>
       <%= image_tag "Muse.png", class: "profile-picture" %>
     <% end %>
   </div>
   <div class="profile-info">
     <%= @user.bio %>,
-    <%= @user.name%>,
+    <%= @user.name %>,
     <%= @user.location %>
   </div>
 
   <h2 class="page-header">
-    <%if @user.buyer? %>
+    <% if @user.buyer? %>
       <%= @user.username %>'s listings
     <% else %>
-      <%= @user.username%>'s offers
+      <%= @user.username %>'s offers
     <% end %>
   </h2>
 
   <div class="card-container">
-    <%if @user.buyer? %>
+    <% if @user.buyer? %>
       <% @user.listings.order(created_at: :desc).each do |listing| %>
         <%= render "listings/card", listing: listing %>
       <% end %>
     <% else %>
-      <% if @user.seller?%>
-        <% @user.sent_offers.order(created_at: :desc).each do |offer|%>
+      <% if @user.seller? %>
+        <% @user.sent_offers.order(created_at: :desc).each do |offer| %>
           <%= render "offers/card", offer: offer %>
         <% end %>
       <% end %>
     <% end %>
   </div>
-
 </body>
