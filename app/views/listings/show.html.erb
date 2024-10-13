@@ -2,12 +2,6 @@
 
 <%= render @listing %>
 
-<% @listing.recent_conversations.each do |message| %>
-  <p><%= message.body %></p>
-  <p>Sent by: <%= User.find(message.sender_id).username %></p>
-  <p>Received by: <%= User.find(message.recipient_id).username %></p>
-<% end %>
-
 <div>
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
   <%= link_to "Back to listings", user_path(current_user.username) %>
