@@ -19,7 +19,9 @@
     <% end %>
   </h5>
   <% if listing.image.attached? %>
-    <%= image_tag listing.image, class: "card-img-top" %>
+    <div class="card-img-container">
+      <%= image_tag listing.image, class: "card-img-top" %>
+    </div>
   <% end %>
   <div class="card-body">
     <p class="card-text">

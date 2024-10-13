@@ -2,13 +2,14 @@
 #
 # Table name: listings
 #
-#  id          :bigint           not null, primary key
-#  caption     :text
-#  purchased   :boolean
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  buyer_id    :bigint           not null
-#  category_id :bigint           not null
+#  id                 :bigint           not null, primary key
+#  caption            :text
+#  original_image_url :string
+#  purchased          :boolean
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  buyer_id           :bigint           not null
+#  category_id        :bigint           not null
 #
 # Indexes
 #
@@ -28,12 +29,6 @@ class Listing < ApplicationRecord
   has_many :offers, class_name: "Offer"
 
   has_one_attached :image
-
-  def recent_conversations
-    latest_message_ids = Message.where(listing_id: id).select("MAX(id) as id").group("LEAST(sender_id, recipient_id)", "GREATEST(sender_id, recipient_id)").collect(&:id)
-    Message.where(id: latest_message_ids)
-  end
-
 
   validates :caption, presence: true
 

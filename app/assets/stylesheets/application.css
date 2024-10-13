@@ -52,6 +52,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 }
 
 .btn {
@@ -81,6 +82,10 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card-body {
+  padding: 10px;
 }
 
 @media (max-width: 530px) {

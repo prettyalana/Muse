@@ -2,14 +2,15 @@
 #
 # Table name: offers
 #
-#  id          :bigint           not null, primary key
-#  description :text
-#  price       :decimal(, )
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  listing_id  :integer
-#  message_id  :integer
-#  seller_id   :bigint           not null
+#  id                 :bigint           not null, primary key
+#  description        :text
+#  original_image_url :string
+#  price              :decimal(, )
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_id         :integer
+#  message_id         :integer
+#  seller_id          :bigint           not null
 #
 # Indexes
 #
