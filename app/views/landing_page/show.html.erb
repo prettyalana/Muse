@@ -17,18 +17,6 @@
       <h1 class="logo-name">Muse</h1>
       <h2 class="caption">A brand new shopping experience</h2>
       <%= link_to "Get Started", new_user_registration_path, class: "boxBtn" %>
-      <div class="color-changer">
-        Color
-        <input type="color">
-        <script>
-          const changer = document.querySelector("div.color-changer input");
-          const bodyTag = document.querySelector("body");
-
-          changer.addEventListener("input", function() {
-          bodyTag.style.backgroundColor = changer.value;
-          })
-        </script>
-      </div>
     </div>
   </section>
 </div>
