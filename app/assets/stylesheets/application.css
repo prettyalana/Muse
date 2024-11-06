@@ -25,14 +25,64 @@
   box-sizing: border-box;
 }
 
+:root {
+  --base-color: rgb(252, 241, 243);
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+  --navbar-background: rgb(255, 220, 229);
+}
+
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --text-color: #ffffff;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+  --navbar-background: #1a1e27;
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-switch svg {
+  fill: var(--text-color);
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+
 body {
-  background: rgb(252, 241, 243);
+  background: var(--base-color);
   font-family: "Alumni Sans Pinstripe", sans-serif;
   padding-bottom: 6.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: var(--text-color);
 }
 
 abbr[title="required"] {
@@ -44,7 +94,7 @@ ul {
 }
 
 .navbar {
-  background: rgb(255, 220, 229);
+  background: var(--navbar-background);
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -92,4 +142,8 @@ ul {
   .nav-text {
     display: none;
   }
+}
+
+.darkmode a {
+  color: white;
 }
