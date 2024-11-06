@@ -31,7 +31,7 @@
   --secondary-text: #232738;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
-  --navbar-background: rgb(255, 220, 229); /* Light mode background for navbar */
+  --navbar-background: rgb(255, 220, 229);
 }
 
 .darkmode {
@@ -41,7 +41,7 @@
   --secondary-text: #a4a5b8;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
-  /* --navbar-background: #1a1e27;  */
+  --navbar-background: #1a1e27;
 }
 
 #theme-switch {
@@ -49,7 +49,6 @@
   width: 50px;
   padding: 0;
   border: none;
-  /* background-color: var(--base-color); */
   background: none;
   display: flex;
   justify-content: center;
@@ -60,7 +59,7 @@
 }
 
 #theme-switch svg {
-  fill: var(--primary-color);
+  fill: var(--text-color);
 }
 
 #theme-switch svg:last-child {
@@ -95,8 +94,7 @@ ul {
 }
 
 .navbar {
-  background: rgb(255, 220, 229);
-  /* background: var(--navbar-background); */
+  background: var(--navbar-background);
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -119,7 +117,7 @@ ul {
   padding: 20px 30px;
   text-decoration: none;
   font-size: 1.0625rem;
-  /* color: var(--text-color); */
+  color: var(--text-color);
 }
 
 .navbar a:hover {
@@ -145,4 +143,8 @@ ul {
   .nav-text {
     display: none;
   }
+}
+
+.darkmode a {
+  color: white;
 }

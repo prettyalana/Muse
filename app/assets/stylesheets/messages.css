@@ -25,3 +25,21 @@
   justify-content: center;
   margin-bottom: 3.125rem;
 }
+
+.darkmode .message {
+  border-color: white; 
+}
+
+.new-message-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.125rem;
+}
+
+.darkmode .new-message {
+  border-color: white;  
+}
+
+.darkmode .new-message .a {
+  color: white;
+}
