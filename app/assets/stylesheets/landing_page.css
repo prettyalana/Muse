@@ -68,7 +68,7 @@ section.box video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 50px; */
+  padding: 1.25rem 3.125rem;
 }
 
 .sign-in {
@@ -77,12 +77,6 @@ section.box video {
   justify-content: center;
   align-items: center;
   margin-right: 0;
-}
-
-@media (max-width: 62.5rem) {
-  .nav {
-    padding: 1.25rem 3.125rem;
-  }
 }
 
 @media (max-width: 43.75rem) {
