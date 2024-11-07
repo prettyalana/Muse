@@ -54,8 +54,8 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 20px;
-  right: 50px;
+  top: 25px;
+  right: 65px;
 }
 
 #theme-switch svg {
