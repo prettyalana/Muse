@@ -103,3 +103,8 @@
 .purchasedBtn:hover {
   background: white;
 }
+
+.darkmode .card {
+  box-shadow: none;
+  border: 1px solid white;
+}

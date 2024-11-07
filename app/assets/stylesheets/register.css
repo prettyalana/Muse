@@ -91,3 +91,69 @@
 .sign-up-btn {
   margin-right: 0.5rem;
 }
+
+.darkmode .modal {
+  background: var(--base-variant); 
+  color: var(--text-color); 
+}
+
+.darkmode .left-content {
+  background: var(--base-color); 
+  color: var(--text-color); 
+}
+
+.darkmode .left-info {
+  background: rgb(50, 50, 50); 
+  color: var(--text-color); 
+}
+
+.darkmode .starting-prompt {
+  color: var(--text-color); 
+}
+
+.darkmode .left-header,
+.darkmode .right-header {
+  color: var(--text-color); 
+}
+
+.darkmode .left-text {
+  color: var(--text-color); 
+}
+
+.darkmode .signup-form-inputs input,
+.darkmode .signup-form-inputs select,
+.darkmode .signup-form-inputs textarea {
+  background-color: var(--base-color); 
+  color: var(--text-color); 
+}
+
+.darkmode .form-actions .sign-up-btn button {
+  background-color: var(--accent-color); 
+  color: var(--text-color);
+}
+
+.darkmode .signup-form-inputs input,
+.darkmode .signup-form-inputs select,
+.darkmode .signup-form-inputs textarea {
+  background-color: #ffffff; 
+  color: var(--base-color); 
+  border: 1px solid var(--base-variant); 
+}
+
+.darkmode .signup-form-inputs input[type="file"] {
+  background-color: var(--base-variant); 
+  color: var(--text-color); 
+  border: 1px solid var(--base-color); 
+}
+
+.darkmode .signup-form-inputs input:focus,
+.darkmode .signup-form-inputs select:focus,
+.darkmode .signup-form-inputs textarea:focus {
+  border-color: var(--accent-color); 
+  outline: none;
+}
+
+.darkmode .form-actions .sign-up-btn button {
+  background-color: var(--accent-color); 
+  color: var(--text-color);
+}
