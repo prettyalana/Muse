@@ -1,11 +1,10 @@
-# This workflow will install a prebuilt Ruby version, install dependencies, and
-# run tests and linters.
 name: "Ruby on Rails CI"
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
 jobs:
   test:
     runs-on: ubuntu-22.04
@@ -24,21 +23,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.1
           bundler-cache: true
-    - name: Ensure Bundler is installed
-      run: gem install bundler && bundle install
+
+      - name: Ensure Bundler is installed
+        run: gem install bundler && bundle install
 
       - name: Verify installed gems
-      run: bundle show rspec
+        run: bundle show rspec
 
       - name: Set up database schema
         run: bin/rails db:schema:load
-      # This runs the tests in the spec/ folder
-      - name: Run rspec tests
+
+      - name: Run RSpec tests
         run: bundle exec rspec
 
   lint:
@@ -46,20 +47,25 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.1
           bundler-cache: true
+
       - name: Ensure Bundler is installed
         run: gem install bundler && bundle install
+
       - name: Verify installed gems
         run: bundle show rubocop
+
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
-      - name: Lint Javascript files
+
+      - name: Lint JavaScript files
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
       - run: npm ci
       - run: npm run lint
