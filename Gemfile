@@ -88,7 +88,6 @@ gem "sqlite3", "~> 1.4"
 gem "table_print"
 
 group :development do
-  gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
   gem "draft_generators"
@@ -114,7 +113,6 @@ end
 
 gem "ransack"
 gem 'aws-sdk-s3', require: false
-gem 'open-uri', '~> 0.3.0'
 gem 'listen', '~> 3.1', '>= 3.1.5'
 gem "mini_magick", "~> 4.13"
 gem 'mini_mime', '~> 1.1', '>= 1.1.2'
