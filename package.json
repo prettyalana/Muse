@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "lint": "eslint"
+  },
   "devDependencies": {
+    "eslint": "^7.32.0",
     "tailwindcss": "^3.4.1"
   }
 }
