@@ -27,7 +27,14 @@ jobs:
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
+          ruby-version: 3.2.1
           bundler-cache: true
+    - name: Ensure Bundler is installed
+      run: gem install bundler && bundle install
+
+      - name: Verify installed gems
+      run: bundle show rspec
+
       - name: Set up database schema
         run: bin/rails db:schema:load
       # This runs the tests in the spec/ folder
@@ -42,8 +49,12 @@ jobs:
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
+          ruby-version: 3.2.1
           bundler-cache: true
-      # Can add more (eg bundler-audit, brakeman, etc.)
+      - name: Ensure Bundler is installed
+        run: gem install bundler && bundle install
+      - name: Verify installed gems
+        run: bundle show rubocop
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
       - name: Lint Javascript files
