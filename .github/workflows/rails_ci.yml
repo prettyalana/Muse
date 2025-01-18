@@ -27,7 +27,7 @@ jobs:
       # Set Ruby version dynamically
       - name: Define Ruby version
         id: ruby-version
-        run: echo "RUBY_VERSION=${{ github.event.inputs.ruby_version || '3.2.1' }}" >> $GITHUB_ENV
+        run: echo "RUBY_VERSION=${{ github.event.inputs.ruby_version || '3.3.1' }}" >> $GITHUB_ENV
 
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
