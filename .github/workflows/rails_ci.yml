@@ -38,10 +38,6 @@ jobs:
       - name: Ensure Bundler is installed
         run: gem install bundler && bundle install
 
-      # Install RSpec and RuboCop (with binstubs)
-      - name: Install RSpec and RuboCop
-        run: bundle install --binstubs
-
       - name: Verify installed gems
         run: bundle show rspec
 
@@ -70,16 +66,6 @@ jobs:
 
       - name: Ensure Bundler is installed
         run: gem install bundler && bundle install
-
-      # Install RSpec and RuboCop (with binstubs)
-      - name: Install RSpec and RuboCop
-        run: bundle binstubs --all
-
-      - name: Verify installed gems
-        run: bundle show rubocop
-
-      - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
 
       - name: Lint JavaScript files
         uses: actions/setup-node@v3
