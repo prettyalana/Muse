@@ -73,6 +73,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails', '~> 7.1'
 end
 
 # AppDev Gems
@@ -102,7 +103,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  # gem 'rspec-rails', '~> 7.1'
 end
 
 group :test do
