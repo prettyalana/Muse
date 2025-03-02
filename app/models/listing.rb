@@ -28,7 +28,7 @@ class Listing < ApplicationRecord
   has_many :messages, class_name: "Message"
   has_many :offers, class_name: "Offer"
 
-  has_many_attached :images
+  has_many_attached :image
 
   validates :caption, presence: true
 
