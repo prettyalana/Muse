@@ -1,29 +1,28 @@
-body {
+.wrapper {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .modal {
   display: flex;
+  max-width: 850px;
+  margin: auto;
   background: white;
-  width: 70%;
-  height: 100%;
   font-weight: 900;
   border-radius: 10px;
-  margin-top: 3.125rem;
 }
 
 .left-content {
   background-size: cover;
-  width: 55%;
+  width: 50%;
   margin: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 150px;
+  background: white;
 }
 
 .left-info {
@@ -37,6 +36,7 @@ body {
   opacity: 0.75;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  height: 100%;
 }
 
 .left-header {
@@ -55,13 +55,12 @@ body {
   display: flex;
   justify-content: center;
   margin: 16px;
-  
 }
 
 .right-info {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   margin: 35px;
 }
 
@@ -75,26 +74,6 @@ body {
   font-size: 20pt;
 }
 
-
-.first-last-container {
-  display: flex;
-  gap: 10px;
-}
-
-.first-last-container {
-  display: flex;
-  flex-direction: column;
-  width: 48.60%;
-  gap: 10px;
-}
-
-
-.user-info-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .sign-up-button {
   width: 100%;
 }
@@ -102,4 +81,79 @@ body {
 .button-container {
   display: flex;
   justify-content: center;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+}
+
+.sign-up-btn {
+  margin-right: 0.5rem;
+}
+
+.darkmode .modal {
+  background: var(--base-variant); 
+  color: var(--text-color); 
+}
+
+.darkmode .left-content {
+  background: var(--base-color); 
+  color: var(--text-color); 
+}
+
+.darkmode .left-info {
+  background: rgb(50, 50, 50); 
+  color: var(--text-color); 
+}
+
+.darkmode .starting-prompt {
+  color: var(--text-color); 
+}
+
+.darkmode .left-header,
+.darkmode .right-header {
+  color: var(--text-color); 
+}
+
+.darkmode .left-text {
+  color: var(--text-color); 
+}
+
+.darkmode .signup-form-inputs input,
+.darkmode .signup-form-inputs select,
+.darkmode .signup-form-inputs textarea {
+  background-color: var(--base-color); 
+  color: var(--text-color); 
+}
+
+.darkmode .form-actions .sign-up-btn button {
+  background-color: var(--accent-color); 
+  color: var(--text-color);
+}
+
+.darkmode .signup-form-inputs input,
+.darkmode .signup-form-inputs select,
+.darkmode .signup-form-inputs textarea {
+  background-color: #ffffff; 
+  color: var(--base-color); 
+  border: 1px solid var(--base-variant); 
+}
+
+.darkmode .signup-form-inputs input[type="file"] {
+  background-color: var(--base-variant); 
+  color: var(--text-color); 
+  border: 1px solid var(--base-color); 
+}
+
+.darkmode .signup-form-inputs input:focus,
+.darkmode .signup-form-inputs select:focus,
+.darkmode .signup-form-inputs textarea:focus {
+  border-color: var(--accent-color); 
+  outline: none;
+}
+
+.darkmode .form-actions .sign-up-btn button {
+  background-color: var(--accent-color); 
+  color: var(--text-color);
 }

@@ -3,8 +3,12 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Allow server to be hosted on any URL
   config.hosts.clear
+  config.action_mailer.default_url_options = {
+    host: "localhost", port: 3000
+  }
+  routes.default_url_options[:host] = 'localhost:3000'
   # Allow better_errors to work in online IDE
-  config.web_console.whitelisted_ips = "0.0.0.0/0.0.0.0"
+  config.web_console.allowed_ips = "0.0.0.0/0.0.0.0"
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0.0.0.0"
   # Auto-connect to database when rails console opens
   console do
@@ -15,6 +19,19 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Enable live compilation of assets
+  config.assets.debug = true
+
+  # Enable auto reloading of changed files
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Disable Rails's static asset server (Apache or nginx will already do this)
+  config.public_file_server.enabled = false
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -44,6 +61,8 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+
+  config.active_storage.variant_processor = :mini_magick
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

@@ -1,0 +1,30 @@
+<%# locals: (offer:) %>
+<div class="card">
+  <h5 class="card-title">
+    <div class="left-side">
+      <% if offer.seller && offer.seller.avatar.attached? %>
+        <%= image_tag offer.seller.avatar, class: "profile-picture" %>
+      <% else %>
+        <%= image_tag "Muse.png", class: "profile-picture" %>
+      <% end %>
+      <%= link_to offer.seller.username, user_path(offer.seller.username) %>
+    </div>
+    <% if offer.seller == current_user %>
+      <div class="right-side">
+        <%= link_to edit_offer_path(offer) do %>
+          <i class="fa-solid fa-ellipsis"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </h5>
+  <% if offer.image.attached? %>
+    <div class="card-img-container">
+      <%= image_tag offer.image, class: "card-img-top" %>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <p class="card-text">
+      <%= offer.description %>
+    </p>
+  </div>
+</div>

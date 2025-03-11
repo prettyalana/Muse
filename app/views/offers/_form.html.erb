@@ -12,13 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :seller_id, style: "display: block" %>
-    <%= collection_select(:message, :recipient_id, User.all, :id, :username) %>
+    <%= form.hidden_field :seller_id, value: current_user.id if current_user.seller? %>
   </div>
 
   <div>
     <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div>
@@ -28,17 +27,12 @@
 
   <div>
     <%= form.label :listing_id, style: "display: block" %>
-    <%= collection_select(:message, :listing_id, Listing.all, :id, :caption) %>
+    <%= collection_select(:offer, :listing_id, Listing.all, :id, :caption) %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
     <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :message_id, style: "display: block" %>
-    <%= form.number_field :message_id %>
   </div>
 
   <div>

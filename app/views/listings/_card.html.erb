@@ -1,9 +1,12 @@
 <%# locals: (listing:) %>
+<% Rails.logger.info "Current Environment: #{Rails.env}" %>
 <div class="card">
   <h5 class="card-title">
     <div class="left-side">
-      <% if listing.buyer.image != nil%>
-        <%= image_tag listing.buyer.image, class:"profile-picture" %>
+      <% if listing.buyer&.avatar.present? %>
+        <%= image_tag listing.buyer.avatar, class:"profile-picture" %>
+      <% else %>
+        <%= image_tag "Muse.png", class: "profile-picture" %>
       <% end %>
       <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
     </div>
@@ -15,7 +18,11 @@
       </div>
     <% end %>
   </h5>
-  <%= image_tag listing.image, class: "card-img-top" %>
+  <% if listing.image.attached? %>
+    <div class="card-img-container">
+      <%= image_tag listing.image, class: "card-img-top" %>
+    </div>
+  <% end %>
   <div class="card-body">
     <p class="card-text">
       <%= listing.caption %>
@@ -30,8 +37,8 @@
       <% end %>
     <% end %>
 
-    <%if current_user.seller?%>
-      <%= link_to new_message_path do %>
+    <% if current_user.seller? %>
+      <%= link_to new_listing_message_path(listing_id: listing.id, recipient_id: listing.buyer.id) do %>
         <i class="fa-regular fa-message"></i>
       <% end %>
     <% end %>

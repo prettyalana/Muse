@@ -1,16 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap");
 
-body {
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+#home-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-video {
+  width: 100%;
+}
+
+.home-sub-header {
+  margin-top: 20px;
 }
 
 .latest-listings {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  gap: 3.125rem;
+  width: 100%;
+  margin: 50px;
+  gap: 50px;
+}
+
+@media (min-width: 700px) {
+  .latest-listings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    width: 95%;
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+
+  .card {
+    min-height: 500px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden;
+  }
+
+  .card-img-container {
+    width: 100%;
+    height: 0;
+    padding-top: 100%; 
+    position: relative;
+  }
+
+  .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
 }
 
 .home-sub-header {

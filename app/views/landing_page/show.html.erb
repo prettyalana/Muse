@@ -1,33 +1,61 @@
-<div class="top">
-  <div class="nav">
-    <div class="logo">
-      <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
+<body class="landing-page-body">
+  <div class="top">
+    <div class="nav">
+      <div class="logo">
+        <%= image_tag("/assets/Muse-2.png", size: "80x80", alt: "Muse")%>
+      </div>
+      <div class="sign-in">
+        <div class="sign-in-link">
+          <%= link_to "sign in", new_user_session_path, class: "link" %>
+        </div>
+      </div>
     </div>
-    <div class="sign-in">
-      <div class="sign-in-link">
-        <%= link_to "sign in", new_user_session_path, class: "link" %>
+
+    <section class="box">
+      <%= video_tag("/assets/landing_page_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, playsinline: :playsinline, width: "100%")%>
+      <div class="box-content">
+        <h1 class="logo-name">Muse</h1>
+        <h2 class="caption">A brand new shopping experience</h2>
+        <%= link_to "Get Started", new_user_registration_path, class: "boxBtn" %>
+      </div>
+      <script>
+        let darkmode = localStorage.getItem('darkmode')
+        const themeSwitch = document.getElementById('theme-switch')
+
+        const enableDarkmode = () => {
+          document.body.classList.add('darkmode')
+          localStorage.setItem('darkmode', 'active')
+        }
+
+        const disableDarkmode = () => {
+          document.body.classList.remove('darkmode')
+          localStorage.setItem('darkmode', null)
+        }
+
+        if(darkmode === "active") enableDarkmode()
+
+        themeSwitch.addEventListener("click", () => {
+          darkmode = localStorage.getItem('darkmode')
+          darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+        })
+      </script>
+    </section>
+  </div>
+
+  <div class="bottom">
+    <div class="demo-container">
+      <h1 class="demo-header"> See how it works </h1>
+      <div class="iframe-container">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTYIP7tGNzU73eJsTsV2MfQWwfTMSAG-rdDvo0LJ_SCrhH8grbFAFpCWHkGKwXvG624GiwK0El0xOUz/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+        </iframe>
       </div>
     </div>
   </div>
 
-  <section class="box">
-    <%= video_tag("/assets/landing_page_video.mp4", loop: :loop, autoplay: :autoplay, muted: :muted, width: "100%")%>
-    <div class="box-content">
-      <h1 class="logo-name">Muse</h1>
-      <h3 class="caption">A brand new shopping experience</h3>
-      <%= link_to "Get Started", new_user_registration_path, class: "boxBtn" %>
-      <div class="color-changer">
-        Color
-        <input type="color">
-        <script>
-          const changer = document.querySelector("div.color-changer input");
-          const bodyTag = document.querySelector("body");
-
-          changer.addEventListener("input", function() {
-          bodyTag.style.backgroundColor = changer.value;
-          })
-        </script>
-      </div>
+  <footer>
+    <div class="footer-content">
+      Muse 2024
     </div>
-  </section>
-</div>
+  </footer>
+
+</body>

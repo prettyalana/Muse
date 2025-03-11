@@ -1,0 +1,11 @@
+.new-listing,
+.new-message-container,
+.edit-listing,
+.edit-offer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

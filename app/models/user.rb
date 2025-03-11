@@ -2,19 +2,18 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  account_type           :string           default("buyer")
 #  address                :string
 #  bio                    :text
-#  email                  :string           default(""), not null
+#  email                  :citext           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  image                  :string
 #  location               :string
 #  name                   :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  username               :string
+#  username               :citext
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -36,16 +35,10 @@ class User < ApplicationRecord
   has_many :sent_offers, foreign_key: :seller_id, class_name: "Offer", dependent: :destroy
   has_many :accepted_counter_offers, -> { where(status: "accepted") }, foreign_key: :sender_id, class_name: "Offer"
 
-
-  # Add this feature later
-
-  # has_many :received_offers, foreign_key: :buyer_id, class_name: "Offer"
-  # has_many :received_offers, -> { where(status: "pending")}, foreign_key: :buyer_id, class_name: "Offer"
-  # has_many :accepted_offers, -> { where(status: "accepted")}, foreign_key: :buyer_id, class_name: "Offer"
-  # has_many :counter_offers, -> { where(status: "countered")}, foreign_key: :buyer_id, class_name: "Offer"
-
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message", dependent: :destroy
   has_many :replied_messages, foreign_key: :recipient_id, class_name: "Message"
+
+  has_one_attached :avatar
 
   validates :username, presence: true, uniqueness: true
 

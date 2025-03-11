@@ -1,30 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
+.landing-page-body {
+  padding-bottom: 0 !important;
+}
+
 .top {
-  height: 50%;
+  height: 100%;
   width: 100%;
 }
 
 .bottom {
   height: 50%;
+  width: 100%;
+  text-align: center;
 }
 
-section {
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 110px 100px;
+  padding: 6.875rem 6.25rem;
+  height: 80vh;
 }
 
-@media (max-width: 1000px) {
+section.box {
+  position: relative;
+  background-color: transparent;
+}
+
+section.box video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; 
+}
+
+.box-content {
+  position: relative;
+  z-index: 1;
+}
+
+.demo-container {
+  margin-top: 3.125rem;
+}
+
+@media (max-width: 62.5rem) {
   section {
-    padding: 100px 50px;
+    padding: 6.25rem 3.125rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   section {
-    padding: 125px 30px;
+    padding: 7.8125rem 1.875rem;
   }
 }
 
@@ -37,6 +68,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.25rem 3.125rem;
 }
 
 .sign-in {
@@ -47,15 +79,9 @@ section {
   margin-right: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 43.75rem) {
   .nav {
-    padding: 20px 50px;
-  }
-}
-
-@media (max-width: 700px) {
-  .nav {
-    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -81,8 +107,10 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.625rem;
+  gap: .625rem;
   margin-top: 6.25rem;
+  z-index: 1; 
+  position: relative;
 }
 
 .logo-name {
@@ -91,17 +119,25 @@ section {
 }
 
 .caption {
-  font-size: 1.875rem;
+  font-size: 2rem;
+  width: 100%;
+  white-space: nowrap;
+}
+
+@media (max-width: 24.375rem) {
+  .caption {
+    font-size: 1em;
+  }
 }
 
 .sign-in,
 .boxBtn {
   text-align: center;
-  padding: 16px 24px;
-  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  border-radius: .3125rem;
   background: rgb(250, 217, 223);
-  box-shadow: 0 0 30px 0 rgb(250, 217, 223), 0 0 30px 0 rgb(249, 218, 223),
-    0 0 10px 0 rgb(249, 220, 225) inset;
+  box-shadow: 0 0 1.875rem 0 rgb(250, 217, 223), 0 0 1.875rem 0 rgb(249, 218, 223),
+    0 0 .625rem 0 rgb(249, 220, 225) inset;
   border: 1px solid white;
   transition: all 0.5s;
 }
@@ -114,27 +150,42 @@ section {
   background: white;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50rem) {
   .box {
-    min-height: 600px;
+    min-height: 37.5rem;
   }
   .boxBtn {
-    padding: 15px 40px;
+    padding: .9375rem 2.5rem;
   }
 }
 
-div.color-changer {
-  border: 2px solid black;
-  padding: 8px 16px 8px 16px;
-  border-radius: 50px;
-  margin-right: 2px;
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  height: 0;
 }
 
-div.color-changer input {
+.iframe-container iframe {
   position: absolute;
-  top: 1;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.darkmode .boxBtn {
+  color: #232738;
+}
+
+.darkmode .link {
+  color: #232738;
+}
+
