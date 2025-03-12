@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
     add listing_path(listing), lastmod: listing.updated_at
   end
 
-  # Add messages (if necessary)
+  # Add messages
   Message.find_each do |message|  # Loop through each message to create its URL
     add message_path(message), lastmod: message.updated_at
   end
