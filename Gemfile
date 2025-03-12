@@ -4,7 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.4.2"
 
 gem "simple_form"
-gem "meta-tags"
+gem 'ostruct', '~> 0.6.1'
+
 
 gem 'image_processing', '~> 1.2'
 
@@ -120,3 +121,5 @@ gem 'open-uri', '~> 0.3.0'
 gem 'listen', '~> 3.1', '>= 3.1.5'
 gem "mini_magick", "~> 4.13"
 gem 'mini_mime', '~> 1.1', '>= 1.1.2'
+gem 'sitemap_generator', '~> 6.3'
+gem 'meta-tags', '~> 2.22', '>= 2.22.1'
