@@ -11,9 +11,14 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
+        <div class="upload-image">
+                <%= render partial: "users/avatar", locals: { user: @user } %>
+        </div>
+
         <%= f.input :avatar,
                 required: false,
-                autofocus: true
+                autofocus: true,
+                input_html: { class: "upload-image"}
                 %>
         <%= f.input :bio,
                 required: false,
@@ -56,7 +61,7 @@
   <div class="account-actions">
     <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "boxBtn" %>
 
-    <h3>Delete my account</h3>
+    <h3>Delete my account</h3> 
 
     <div>
       <h5>Unhappy?</h5>
