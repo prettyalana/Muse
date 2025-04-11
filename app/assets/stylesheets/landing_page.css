@@ -155,6 +155,7 @@ section.box video {
     min-height: 37.5rem;
     width: 100%;
   }
+  .sign-in,
   .boxBtn {
     width: auto;
     height: auto;
