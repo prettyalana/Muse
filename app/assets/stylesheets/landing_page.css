@@ -153,9 +153,14 @@ section.box video {
 @media (max-width: 50rem) {
   .box {
     min-height: 37.5rem;
+    width: 100%;
   }
+  .sign-in,
   .boxBtn {
-    padding: .9375rem 2.5rem;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1rem;
+    text-align: center;
   }
 }
 
@@ -188,4 +193,3 @@ footer {
 .darkmode .link {
   color: #232738;
 }
-
