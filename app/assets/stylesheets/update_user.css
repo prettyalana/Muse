@@ -36,6 +36,13 @@
   gap: 3.125rem;
 }
 
+@media (max-height: 750px) {
+
+  .edit-form-container {
+    gap: .625rem;
+  }
+}
+
 .upload-image {
   width: 150px;
   font-size: .5rem;
