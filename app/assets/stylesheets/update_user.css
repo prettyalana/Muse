@@ -1,19 +1,50 @@
 .edit-header {
   margin: 50px 0 20px;
+  text-align: center;
 }
 
 .form-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 100%;
+}
+
+.edit-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
 }
 
 .account-actions {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+}
+
+.edit-user-container {
+  display: flex;
+}
+
+.edit-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+}
+
+@media (max-height: 750px) {
+
+  .edit-form-container {
+    gap: .625rem;
+  }
+}
+
+.upload-image {
+  width: 150px;
+  font-size: .5rem;
+  padding: 0 5px;
 }

@@ -1,0 +1,7 @@
+<div class="profile-picture-container">
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar, class: "avatar-picture" %>
+  <% else %>
+    <%= image_tag "Muse.png", class: "profile-picture" %>
+  <% end %>
+</div>
