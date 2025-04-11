@@ -45,6 +45,11 @@
 
 .upload-image {
   width: 150px;
-  font-size: .5rem;
   padding: 0 5px;
+  text-align: center;
+}
+
+.bio-text-box {
+  height: 17px;
+  width: 146px;
 }
