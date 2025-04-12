@@ -13,6 +13,14 @@
   border-radius: 10px;
   height: 50vh;
   overflow: hidden;
+  position: relative;
+}
+
+.return-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
 }
 
 .left-content {
@@ -187,10 +195,11 @@
   .right-info {
     margin: 0;
   }
-}
 
-@media (min-width: 768px) {
-  .left-info {
-    height: 100%;
+  .return-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
   }
 }
