@@ -1,12 +1,59 @@
+body#sign-in-body {
+  all: unset; 
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--base-color);
+  color: var(--text-color);
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+}
+
+#sign-in-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
 .user-sign-in {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-inputs {
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .form-actions {
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 20px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#sign-in-body .return-icon {
+  position: absolute;
+  top: 6.25rem;
+  right: 15.625rem;
+  z-index: 15;
+}
+
+.form-group.boolean {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group.boolean .form-label {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
 }
