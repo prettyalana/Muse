@@ -11,6 +11,8 @@
   background: white;
   font-weight: 900;
   border-radius: 10px;
+  height: 50vh;
+  overflow-y: scroll;
 }
 
 .left-content {
@@ -72,6 +74,7 @@
 
 .right-header {
   font-size: 20pt;
+  text-align: center;
 }
 
 .sign-up-button {
@@ -156,4 +159,25 @@
 .darkmode .form-actions .sign-up-btn button {
   background-color: var(--accent-color); 
   color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .left-content,
+  .right-info {
+    width: 100%;
+    margin: 0; 
+    padding: 20px;
+  }
+
+  .right-info {
+    margin: 0;
+  }
 }
