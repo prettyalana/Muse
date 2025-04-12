@@ -13,6 +13,14 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
+  config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, wrap_with: { tag: :label, class: 'form-label' }
+    b.use :input, class: 'form-control'
+    b.use :error, wrap_with: { tag: :div, class: 'invalid-feedback' }
+    b.use :hint,  wrap_with: { tag: :small, class: 'form-text text-muted' }
+  end
   config.wrappers :default, class: :input,
     hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
     ## Extensions enabled by default
@@ -65,7 +73,7 @@ SimpleForm.setup do |config|
   end
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper = :vertical_form
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.

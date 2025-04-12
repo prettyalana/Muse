@@ -22,45 +22,63 @@
           </div>
 
           <div class="forms">
-            <%= f.input :bio,
+            <div class="left-forms">
+              <%= f.input :bio,
                 required: false,
                 autofocus: true,
+                wrapper: :vertical_form,
                 input_html: {class: "bio-text-box"}
                 %>
-            <%= f.input :email,
+              <%= f.input :email,
                 required: true,
                 autofocus: true,
+                wrapper: :vertical_form,
                 input_html: { autocomplete: "email" }%>
-            <%= f.input :name,
+              <%= f.input :name,
+                wrapper: :vertical_form,
                 required: true
                 %>
-            <%= f.input :username,
+              <%= f.input :username,
                 required: true,
+                wrapper: :vertical_form,
                 autofocus: true
                 %>
-            <%= f.input :address,
-                required: true,
-                autofocus: true
-                %>
-            <%= f.input :location,
-                required: true,
-                autofocus: true
-                %>
-            <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-            <%= f.input :current_password,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-            <div class="form-actions">
-              <%= f.button :submit, "Update", class: "boxBtn" %>
             </div>
-          <% end %>
+
+            <div class="right-forms">
+              <%= f.input :address,
+                required: true,
+                wrapper: :vertical_form,
+                autofocus: true
+                %>
+              <%= f.input :location,
+                required: true,
+                wrapper: :vertical_form,
+                autofocus: true
+                %>
+              <%= f.input :password,
+                required: false,
+                wrapper: :vertical_form,
+                input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                required: false,
+                wrapper: :vertical_form,
+                input_html: { autocomplete: "new-password" } %>
+            </div>
+          </div>
         </div>
+
+        <div class="form-footer">
+                <%= f.input :current_password,
+                required: true,
+                wrapper: :vertical_form,
+                input_html: { autocomplete: "current-password" } %>
+          <div class="form-actions">
+            <%= f.button :submit, "Update", class: "boxBtn" %>
+          </div>
       </div>
+
+      <% end %>
     </div>
 
     <div class="account-actions">

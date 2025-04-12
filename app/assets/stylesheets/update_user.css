@@ -3,31 +3,17 @@
   text-align: center;
 }
 
-.form-inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.edit-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0;
-}
-
 .account-actions {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 2.5rem;
+  gap: .625rem;
 }
 
 .edit-user-container {
   display: flex;
+  margin-top: 3.125rem;
 }
 
 .edit-form-container {
@@ -50,6 +36,27 @@
 }
 
 .bio-text-box {
-  height: 17px;
-  width: 146px;
+  height: 26px;
+  width: 166px;
+}
+
+.forms {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+}
+
+.left-forms,
+.right-forms {
+  width: 50%;
+  height: 100%;
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  text-align: center;
 }

@@ -124,7 +124,7 @@ ul {
 }
 
 .navbar a.active {
-  color: white;
+  color: rgb(253, 251, 252);
 }
 
 .page {
@@ -145,5 +145,31 @@ ul {
 }
 
 .darkmode a {
-  color: white;
+  color: var(--text-color)
+}
+
+.darkmode a:hover{
+  color: var(--base-variant)
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
