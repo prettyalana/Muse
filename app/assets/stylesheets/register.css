@@ -12,7 +12,7 @@
   font-weight: 900;
   border-radius: 10px;
   height: 50vh;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .left-content {
@@ -22,12 +22,14 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
   align-items: center;
   gap: 150px;
   background: white;
 }
 
 .left-info {
+  flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -64,6 +66,7 @@
   flex-direction: column;
   width: 50%;
   margin: 35px;
+  overflow-y: auto;
 }
 
 .starting-prompt {
@@ -177,7 +180,17 @@
     padding: 20px;
   }
 
+  .left-info {
+    width: 100%;
+  }
+
   .right-info {
     margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .left-info {
+    height: 100%;
   }
 }
