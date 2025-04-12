@@ -57,3 +57,12 @@ body#sign-in-body {
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 700px) {
+  #sign-in-body .return-icon {
+    position: absolute;
+    top: 6.5rem;   
+    right: 5rem;    
+    z-index: 15;
+  }
+}
