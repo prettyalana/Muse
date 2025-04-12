@@ -11,6 +11,16 @@
   background: white;
   font-weight: 900;
   border-radius: 10px;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.return-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
 }
 
 .left-content {
@@ -20,12 +30,14 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
   align-items: center;
   gap: 150px;
   background: white;
 }
 
 .left-info {
+  flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -62,6 +74,7 @@
   flex-direction: column;
   width: 50%;
   margin: 35px;
+  overflow-y: auto;
 }
 
 .starting-prompt {
@@ -72,6 +85,7 @@
 
 .right-header {
   font-size: 20pt;
+  text-align: center;
 }
 
 .sign-up-button {
@@ -156,4 +170,36 @@
 .darkmode .form-actions .sign-up-btn button {
   background-color: var(--accent-color); 
   color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .left-content,
+  .right-info {
+    width: 100%;
+    margin: 0; 
+    padding: 20px;
+  }
+
+  .left-info {
+    width: 100%;
+  }
+
+  .right-info {
+    margin: 0;
+  }
+
+  .return-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+  }
 }
