@@ -23,17 +23,17 @@ body#sign-in-body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: .5rem;
 }
 
 .form-inputs {
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 1.25rem;
+  padding: .625rem;
 }
 
 .form-actions {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
@@ -58,7 +58,7 @@ body#sign-in-body {
   align-items: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 43.75rem) {
   #sign-in-body .return-icon {
     position: absolute;
     top: 6.5rem;   

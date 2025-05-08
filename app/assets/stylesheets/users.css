@@ -19,16 +19,16 @@
 }
 
 .profile-picture {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 50%;
-  margin: 8px;
+  margin: .5rem;
   object-fit: cover;
 }
 
 .avatar-picture {
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -42,14 +42,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 8px;
+  margin-right: .5rem;
 }
 
 .left-side {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: .5rem;
 }
 
 .card-container {
@@ -60,7 +60,7 @@
   margin: 0 auto; 
 }
 
-@media (min-width: 700px) {
+@media (min-width: 43.75rem) {
   .card-container {
     display: flex;
     flex-direction: column;
@@ -90,10 +90,10 @@
 }
 
 .purchasedBtn {
-  margin: 8px 0px 8px 0px;
+  margin: .5rem 0rem .5rem 0rem;
   text-align: center;
-  padding: 8px 16px;
-  border-radius: 5px;
+  padding: .5rem 1rem;
+  border-radius: .3125rem;
   background: rgb(250, 217, 223);
   box-shadow: 0 0 1.875rem 0 rgb(250, 217, 223), 0 0 1.875rem 0 rgb(249, 218, 223),
     0 0 .625rem 0 rgb(249, 220, 225) inset;
@@ -107,5 +107,5 @@
 
 .darkmode .card {
   box-shadow: none;
-  border: 1px solid white;
+  border: .0625rem solid white;
 }

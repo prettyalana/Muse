@@ -21,28 +21,28 @@
 }
 
 .home-sub-header {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .latest-listings {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 50px;
-  gap: 50px;
+  margin: 3.125rem;
+  gap: 3.125rem;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 43.75rem) {
   .latest-listings {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     width: 95%;
-    column-gap: 50px;
-    row-gap: 50px;
+    column-gap: 3.125rem;
+    row-gap: 3.125rem;
   }
 
   .card {
-    min-height: 500px; 
+    min-height: 31.25rem; 
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 

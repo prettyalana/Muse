@@ -138,7 +138,7 @@ section.box video {
   background: rgb(250, 217, 223);
   box-shadow: 0 0 1.875rem 0 rgb(250, 217, 223), 0 0 1.875rem 0 rgb(249, 218, 223),
     0 0 .625rem 0 rgb(249, 220, 225) inset;
-  border: 1px solid white;
+  border: .0625rem solid white;
   transition: all 0.5s;
 }
 

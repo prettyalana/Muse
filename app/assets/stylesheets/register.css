@@ -6,11 +6,11 @@
 
 .modal {
   display: flex;
-  max-width: 850px;
+  max-width: 53.125rem;
   margin: auto;
   background: white;
   font-weight: 900;
-  border-radius: 10px;
+  border-radius: .625rem;
   height: 50vh;
   overflow: hidden;
   position: relative;
@@ -26,28 +26,28 @@
 .left-content {
   background-size: cover;
   width: 50%;
-  margin: 10px;
-  border-radius: 10px;
+  margin: .625rem;
+  border-radius: .625rem;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
-  gap: 150px;
+  gap: 9.375rem;
   background: white;
 }
 
 .left-info {
   flex: 1;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: .625rem;
   background: rgb(255, 220, 229);
   opacity: 0.75;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: .625rem;
+  border-top-right-radius: .625rem;
   height: 100%;
 }
 
@@ -66,21 +66,21 @@
   width: 3%;
   display: flex;
   justify-content: center;
-  margin: 16px;
+  margin: 1rem;
 }
 
 .right-info {
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin: 35px;
+  margin: 2.1875rem;
   overflow-y: auto;
 }
 
 .starting-prompt {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: .5rem;
 }
 
 .right-header {
@@ -151,13 +151,13 @@
 .darkmode .signup-form-inputs textarea {
   background-color: #ffffff; 
   color: var(--base-color); 
-  border: 1px solid var(--base-variant); 
+  border: .0625rem solid var(--base-variant); 
 }
 
 .darkmode .signup-form-inputs input[type="file"] {
   background-color: var(--base-variant); 
   color: var(--text-color); 
-  border: 1px solid var(--base-color); 
+  border: .0625rem solid var(--base-color); 
 }
 
 .darkmode .signup-form-inputs input:focus,
@@ -172,7 +172,7 @@
   color: var(--text-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .modal {
     flex-direction: column;
     width: 90vw;
@@ -185,7 +185,7 @@
   .right-info {
     width: 100%;
     margin: 0; 
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .left-info {

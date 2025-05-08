@@ -9,7 +9,7 @@
 
 .message {
   padding-left: .5rem;
-  border: 1px solid black;
+  border: .0625rem solid black;
   margin: .3125rem 0 .3125rem 0;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .new-message {
-  border: 1px solid black;
+  border: .0625rem solid black;
   display: flex;
   justify-content: center;
   margin-bottom: 3.125rem;

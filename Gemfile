@@ -119,3 +119,4 @@ gem 'open-uri', '~> 0.3.0'
 gem 'listen', '~> 3.1', '>= 3.1.5'
 gem "mini_magick", "~> 4.13"
 gem 'mini_mime', '~> 1.1', '>= 1.1.2'
+gem 'ostruct'
