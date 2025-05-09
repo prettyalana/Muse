@@ -11,13 +11,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <link rel="icon" href="/assets/favicon-59094402c02c729ac52b081282620c3b4d2857dd676a10fc2ce8fd6febc07900.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/favicon-32x32-52215e185344d410f66522d362431aae6f74cc7bbbd4b290aa12ae2a995bf07b.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/assets/favicon-16x16-9db27a37acc29372875f0114d8903d5d836222220495312698ccd9d3c748372f.png" sizes="16x16" type="image/png">
-    <link rel="apple-touch-icon" href="public/assets/apple-touch-icon-f10015ac9f165e13643bd03e8dcaa54d692a6fc3f9239994ad8dcec9378b7a29.png">
-    <link rel="icon" href="/assets/android-chrome-192x192-f346ac321a7219f882246c1968caa2ff7cc47c00a1901b5219ebf52cf8aafc20.png" sizes="192x192" type="image png">
-    <link rel="icon" href="/assets/android-chrome-512x512-d02210ac9d4c49ba6f25c9dd9473f5bd2c963376a1675fe8a00562bfde679aac.png">
-
+    <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
+    <link rel="icon" href="<%= asset_path('favicon-32x32.png') %>" sizes="32x32" type="image/png">
+    <link rel="icon" href="<%= asset_path('favicon-16x16.png') %>" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="<%= asset_path('apple-touch-icon.png') %>">
+    <link rel="icon" href="<%= asset_path('android-chrome-192x192.png') %>" sizes="192x192" type="image/png">
+    <link rel="icon" href="<%= asset_path('android-chrome-512x512.png') %>">
 
   </head>
 
