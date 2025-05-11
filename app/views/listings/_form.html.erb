@@ -1,4 +1,4 @@
-<%= form_with(model: listing) do |form| %>
+<%= simple_form_for listing do |f| %>
   <% if listing.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -12,21 +12,20 @@
   <% end %>
 
   <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
+    <%= f.input :image, as: :file %>
   </div>
 
   <div>
-    <%= form.label :caption, style: "display: block" %>
-    <%= form.text_area :caption %>
+    <%= f.input :caption %>
   </div>
 
   <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= collection_select(:listing, :category_id, Category.all, :id, :name ) %>
+    <%= f.input :category_id,
+              collection: Category.all,
+              label_method: :name,
+              value_method: :id,
+              prompt: "Select a category" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= f.button :submit, class: "boxBtn" %>
 <% end %>
