@@ -11,11 +11,7 @@
   <% end %>
 
   <div>
-    <% if current_user.seller? %>
-      <%= f.hidden_field :recipient_id %>
-    <% else %>
-      <%= f.collection_select :recipient_id, User.seller, :id, :username, { selected: @message.recipient_id } %>
-    <% end %>
+    <%= f.hidden_field :recipient_id, value: @message.recipient_id %>
   </div>
 
   <div>

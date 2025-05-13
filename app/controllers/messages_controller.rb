@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
   before_action :set_listing, only: [:message_thread]
 
-
   # GET /messages or /messages.json
   def index
     @messages = Message.where(sender: current_user).or(Message.where(recipient: current_user)).group_by(&:listing_id)
@@ -15,9 +14,21 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
-    @message.recipient_id = params[:recipient_id]
-    @message.listing_id = params[:listing_id]
+    @listing = Listing.find(params[:listing_id])
+    @message = Message.new(listing: @listing)
+
+    if current_user.seller?
+      @message.recipient_id = @listing.buyer_id
+    else
+      last_message = Message.where(listing: @listing).where.not(sender_id: current_user.id).order(created_at: :desc).first
+
+      if last_message.present?
+        @message.recipient_id = last_message.sender_id
+      else
+        flash[:alert] = "No previous message to reply to."
+        redirect_to listings_path and return
+      end
+    end
   end
 
   # POST /messages or /messages.json
