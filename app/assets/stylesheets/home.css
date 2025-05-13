@@ -36,7 +36,7 @@
   gap: 3.125rem;
 }
 
-@media (min-width: 43.75rem) {
+@media (min-width: 73.75rem) {
   .latest-listings {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
