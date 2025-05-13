@@ -5,11 +5,19 @@
       <strong>Sender:</strong>
       <%= message.sender.username %>
     </p>
+    <p>
+      <strong>Recipient:</strong>
+      <%= message.recipient.username %>
+    </p>
   <% elsif message.recipient == current_user %>
     <p>
       <%= render "users/avatar", user: message.sender, class_name: "recipient-avatar" %>
       <strong>Sender:</strong>
       <%= message.sender.username %>
+    </p>
+    <p>
+      <strong>Recipient:</strong>
+      <%= message.recipient.username %>
     </p>
   <% end %>
 
