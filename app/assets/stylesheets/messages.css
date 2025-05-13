@@ -61,3 +61,8 @@
 .message-thread-header {
   text-align: center;
 }
+
+.message-image {
+  height: 50%;
+  width: 50%;
+}
