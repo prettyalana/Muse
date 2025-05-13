@@ -2,7 +2,7 @@
   <div class="messages-container">
     <h1 class="messages-header">Messages</h1>
 
-    <div id="messages">
+    <div id="message-inbox">
       <% @messages.each do |listing_id, messages| %>
         <% listing = Listing.find_by(id: listing_id) %>
 
