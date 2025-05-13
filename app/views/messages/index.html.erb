@@ -2,32 +2,21 @@
   <div class="messages-container">
     <h1 class="messages-header">Messages</h1>
 
-    <div id="messages">
+    <div id="message-inbox">
       <% @messages.each do |listing_id, messages| %>
         <% listing = Listing.find_by(id: listing_id) %>
-        
+
         <% if listing %>
-          <h4><%= listing.caption %></h4>
-          <% messages.each do |message| %>
-            <div class="message">
-              <%= render message %>
-            </div>
-          <% end %>
-          <div class="new-message">
-            <% if current_user.seller? %>
-              <% recipient_id = listing.buyer.id %>
+          <div class="listing-message-container">
+            <h2><%= listing.caption %></h2>
+
+            <%= link_to listing_messages_thread_path(listing.id) do %>
+              <i class="fa-solid fa-chevron-right"></i>
             <% end %>
-            <%= link_to "New message", new_listing_message_path(listing_id: listing.id, recipient_id: recipient_id) %>
           </div>
         <% else %>
-          <h4>Listing not found (ID: <%= listing_id %>)</h4>
-          <% messages.each do |message| %>
-            <div class="message">
-              <%= render message %>
-            </div>
-          <% end %>
-          <div class="new-message">
-            <p>Cannot send a new message, as the listing has been deleted.</p>
+          <div class="listing-message-container">
+            <h2>Listing has been deleted (ID: <%= listing_id %>)</h2>
           </div>
         <% end %>
       <% end %>

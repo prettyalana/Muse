@@ -2,24 +2,21 @@
 #
 # Table name: offers
 #
-#  id                 :bigint           not null, primary key
+#  id                 :integer          not null, primary key
 #  description        :text
-#  original_image_url :string
+#  listing_id         :integer
 #  price              :decimal(, )
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  listing_id         :integer
+#  seller_id          :integer          not null
 #  message_id         :integer
-#  seller_id          :bigint           not null
+#  original_image_url :string
 #
 # Indexes
 #
 #  index_offers_on_seller_id  (seller_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (seller_id => users.id)
-#
+
 class Offer < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :listing

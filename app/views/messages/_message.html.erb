@@ -1,22 +1,32 @@
 <div id="<%= dom_id message %>">
-  <p>
-    <strong>Sender:</strong>
-    <%= message.sender.username %>
-  </p>
+  <% if message.sender == current_user %>
+    <p>
+      <%= render "users/avatar", user: message.sender, class_name: "sender-avatar" %>
+      <strong>Sender:</strong>
+      <%= message.sender.username %>
+    </p>
+    <p>
+      <strong>Recipient:</strong>
+      <%= message.recipient.username %>
+    </p>
+  <% elsif message.recipient == current_user %>
+    <p>
+      <%= render "users/avatar", user: message.sender, class_name: "recipient-avatar" %>
+      <strong>Sender:</strong>
+      <%= message.sender.username %>
+    </p>
+    <p>
+      <strong>Recipient:</strong>
+      <%= message.recipient.username %>
+    </p>
+  <% end %>
 
   <p>
-    <strong>Recipient:</strong>
-    <%= message.recipient.username %>
-  </p>
-
-  <p>
-    <strong>Listing:</strong>
-    <%= message.listing_id %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
+    <strong>Message:</strong>
     <%= message.body %>
   </p>
-  
+
+  <% if message.image.attached? %>
+    <%= image_tag message.image, class: "message-image" %>
+  <% end %>
 </div>

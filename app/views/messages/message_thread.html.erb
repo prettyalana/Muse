@@ -1,0 +1,26 @@
+<body class="page">
+  <div class="message-thread-container">
+    <h1 class="message-thread-header">
+      <% if @listing.present? %>
+        <%= @listing.caption %>
+      <% else %>
+        Deleted Listing (ID: <%= params[:listing_id] %>)
+      <% end %>
+    </h1>
+
+    <div id="messages">
+      <% @messages.each do |message| %>
+        <div class="message">
+          <%= render message %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="new-message">
+      <% if current_user.seller? %>
+        <% recipient_id = @listing.buyer.id %>
+      <% end %>
+      <%= link_to "New message", new_listing_message_path(listing_id: @listing.id, recipient_id: recipient_id) %>
+    </div>
+  </div>
+</body>
