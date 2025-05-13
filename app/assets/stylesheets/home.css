@@ -24,6 +24,10 @@
   margin-top: 1.25rem;
 }
 
+.title-content {
+  text-align: center;
+}
+
 .latest-listings {
   display: flex;
   flex-direction: column;
