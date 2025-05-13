@@ -9,3 +9,9 @@
   align-items: center;
   height: 100vh;
 }
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+}
+

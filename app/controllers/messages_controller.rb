@@ -1,9 +1,16 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_listing, only: [:message_thread]
+
 
   # GET /messages or /messages.json
   def index
     @messages = Message.where(sender: current_user).or(Message.where(recipient: current_user)).group_by(&:listing_id)
+  end
+
+  def message_thread
+    @messages = Message.where(listing_id: @listing.id).where(sender: current_user).or(Message.where(recipient: current_user, listing_id: @listing.id))
+    @user = current_user
   end
 
   # GET /messages/new
@@ -64,8 +71,12 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  def set_listing
+    @listing = Listing.find_by(id: params[:listing_id])
+  end
+
   # Only allow a list of trusted parameters through.
   def message_params
-    params.require(:message).permit(:sender_id, :recipient_id, :listing_id, :body)
+    params.require(:message).permit(:sender_id, :recipient_id, :listing_id, :body, :image)
   end
 end

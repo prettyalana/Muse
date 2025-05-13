@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_09_153426) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_13_042745) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_09_153426) do
     t.datetime "updated_at", null: false
     t.bigint "buyer_id", null: false
     t.bigint "category_id", null: false
+    t.string "original_image_url"
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
     t.index ["category_id"], name: "index_listings_on_category_id"
   end
@@ -79,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_09_153426) do
     t.datetime "updated_at", null: false
     t.bigint "seller_id", null: false
     t.integer "message_id"
+    t.string "original_image_url"
     t.index ["seller_id"], name: "index_offers_on_seller_id"
   end
 

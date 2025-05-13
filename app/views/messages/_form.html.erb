@@ -1,4 +1,4 @@
-<%= form_with(model: @message, local: true) do |form| %>
+<%= simple_form_for @message, local: true, html: { multipart: true } do |f| %>
   <% if @message.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -12,23 +12,25 @@
 
   <div>
     <% if current_user.seller? %>
-      <%= form.hidden_field :recipient_id %>
+      <%= f.hidden_field :recipient_id %>
     <% else %>
-      <%= form.label :recipient_id, "Recipient" %>
-      <%= form.collection_select :recipient_id, User.seller, :id, :username, { selected: @message.recipient_id } %>
+      <%= f.collection_select :recipient_id, User.seller, :id, :username, { selected: @message.recipient_id } %>
     <% end %>
   </div>
 
   <div>
-    <%= form.hidden_field :listing_id %>
+    <%= f.hidden_field :listing_id %>
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= f.input :body, as: :text %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= f.input :image, as: :file %>
+  </div>
+
+  <div>
+    <%= f.button :submit %>
   </div>
 <% end %>

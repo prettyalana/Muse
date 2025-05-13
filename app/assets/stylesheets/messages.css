@@ -5,6 +5,7 @@
 
 .messages-header {
   text-align: center;
+  margin-bottom: 1.25rem;
 }
 
 .message {
@@ -42,4 +43,12 @@
 
 .darkmode .new-message .a {
   color: white;
+}
+
+.listing-message-container {
+  border: 1px solid black;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
