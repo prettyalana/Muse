@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "user/registrations" }
 
   resources :offers
-  resources :categories
+
+  if Rails.env.development?
+    resources :categories
+  end
 
   resources :listings do
     get 'messages/thread', to: 'messages#message_thread', as: 'messages_thread'
