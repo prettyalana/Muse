@@ -9,9 +9,40 @@
 }
 
 .message {
-  padding-left: .5rem;
   border: .0625rem solid black;
   margin: .3125rem 0 .3125rem 0;
+}
+
+[id^="message_"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.image-and-message-container {
+  width: 100%;
+  display: flex;
+}
+
+.messages-image-container {
+  padding: 1rem;
+  height: 50%;
+}
+
+.message-content {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
 
 .new-message-top {
@@ -64,8 +95,8 @@
 }
 
 .message-image {
-  height: 50%;
-  width: 50%;
+  height: 25%;
+  width: 25%;
 }
 
 .new-message-btn-container {
