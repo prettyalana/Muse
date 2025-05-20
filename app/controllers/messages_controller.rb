@@ -75,6 +75,20 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy_thread
+    @listing = Listing.find(params[:listing_id])
+
+    @messages = Message.where(listing_id: @listing.id).where("sender_id = :id OR recipient_id = :id", id: current_user.id)
+
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url, notice: "Message was deleted." }
+      format.json { head :no_content }
+      format.js
+    end
+
+    @messages.destroy_all
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
