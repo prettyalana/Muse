@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :listings do
     get 'messages/thread', to: 'messages#message_thread', as: 'messages_thread'
-    resources :messages, only: [:new, :create]
+    delete 'messages/thread', to: 'messages#destroy_thread', as: :delete_message_thread
+    resources :messages, only: [:new, :create, :destroy]
   end
 
   resources :messages

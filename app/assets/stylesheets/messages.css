@@ -103,3 +103,8 @@
   display: flex;
   justify-content: center;
 }
+
+.new-message-btn-container {
+  display: flex;
+  justify-content: center;
+}
