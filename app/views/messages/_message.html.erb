@@ -3,7 +3,7 @@
     <div class="messages-image-container">
       <% if message.sender == current_user %>
         <p>
-          <%= render "users/avatar", user: message.sender, class_name: "sender-avatar" %>
+          <%= render "users/avatar", user: message.sender, class_name: "profile-picture" %>
           <strong>Sender:</strong>
           <%= message.sender.username %>
         </p>
@@ -13,7 +13,7 @@
         </p>
       <% elsif message.recipient == current_user %>
         <p>
-          <%= render "users/avatar", user: message.sender, class_name: "recipient-avatar" %>
+          <%= render "users/avatar", user: message.sender, class_name: "profile-picture"%>
           <strong>Sender:</strong>
           <%= message.sender.username %>
         </p>

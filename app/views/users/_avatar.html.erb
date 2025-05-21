@@ -1,7 +1,11 @@
+<%# If the local variable `class_name` wasn't passed in when rendering this partial, set a default value of "avatar-picture". This prevents a NameError and ensures the image tag always has a valid CSS class. %>
+
+<% class_name ||= "avatar-picture" %>
+
 <div class="profile-picture-container">
   <% if user.avatar.attached? %>
-    <%= image_tag user.avatar, class: "avatar-picture" %>
+    <%= image_tag user.avatar, class: class_name %>
   <% else %>
-    <%= image_tag "Muse-2.png", class: "avatar-picture" %>
+    <%= image_tag "Muse-2.png", class: class_name %>
   <% end %>
 </div>
