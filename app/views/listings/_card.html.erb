@@ -6,7 +6,7 @@
       <% if listing.buyer&.avatar.present? %>
         <%= image_tag listing.buyer.avatar, class:"profile-picture" %>
       <% else %>
-        <%= image_tag "Muse.png", class: "profile-picture" %>
+        <%= image_tag "Muse-2.png", class: "profile-picture" %>
       <% end %>
       <%= link_to listing.buyer.username, user_path(listing.buyer.username) %>
     </div>
