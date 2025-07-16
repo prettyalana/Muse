@@ -103,6 +103,7 @@ Listing.all.each do |listing|
   end
 end
 
+  p "#{starting}."
 
   p "Created #{Offer.all.count} offers."
 
