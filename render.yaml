@@ -1,9 +1,3 @@
-databases:
-  - name: muse
-    plan: free
-    databaseName: muse
-    user: muse_user
-
 services:
   - type: web
     name: muse
