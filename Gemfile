@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.2"
+ruby "4.0.6"
 
 gem "simple_form"
 
@@ -120,3 +120,6 @@ gem 'listen', '~> 3.1', '>= 3.1.5'
 gem "mini_magick", "~> 4.13"
 gem 'mini_mime', '~> 1.1', '>= 1.1.2'
 gem 'ostruct'
+gem 'tsort'
+
+gem "cgi", "~> 0.5.2"
